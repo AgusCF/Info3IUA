@@ -17,7 +17,11 @@ public class App {
         Potencia pot = new Potencia();
         resu=pot.potenca(2,3);
         System.out.println("La potencia da:"+resu);
-
+        //--------------------------------EJE 6
+        invercionLetras invertir = new invercionLetras();
+        String palabra = null;
+        palabra = invertir.inver("hola");
+        System.out.println("La palabra invertida es: " + palabra );
 
 
     }
