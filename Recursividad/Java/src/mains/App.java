@@ -1,6 +1,6 @@
 package mains;
 
-import utilitis.factorial;
+import utilitis.*;
 
 public class App {
     public static void main(String[] args) throws Exception {

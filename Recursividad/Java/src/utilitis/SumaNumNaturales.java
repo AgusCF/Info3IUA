@@ -1,3 +1,5 @@
+package utilitis;
+
 public class SumaNumNaturales {
     public int sum(int num){
         if (num==0) {
