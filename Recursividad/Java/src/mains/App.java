@@ -13,7 +13,6 @@ public class App {
         SumaNumNaturales sumNatural=new SumaNumNaturales();
         suma=sumNatural.sum(5);
         System.out.println("La suma da:"+suma);
-        SumaNumNaturales t = new SumaNumNaturales();
 
     }
 }
