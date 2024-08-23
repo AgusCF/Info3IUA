@@ -13,15 +13,21 @@ public class App {
         SumaNumNaturales sumNatural=new SumaNumNaturales();
         resu=sumNatural.sum(5);
         System.out.println("La suma da:"+resu);
-        //--------------------------------EJE 5
-        Potencia pot = new Potencia();
-        resu=pot.potenca(2,3);
-        System.out.println("La potencia da:"+resu);
-        //--------------------------------EJE 6
+        //--------------------------------EJE 3
+        Fibonacchi fibo = new Fibonacchi();
+        resu=fibo.fibonacchi(11);
+        System.out.println("La secuencia de fibonacchi es:"+resu);
+        //--------------------------------EJE 4
         inversionLetras invertir = new inversionLetras();
         String palabra = null;
         palabra = invertir.invertir("hola");
         System.out.println("La palabra invertida es: " + palabra );
+        //--------------------------------EJE 5
+        Potencia pot = new Potencia();
+        resu=pot.potenca(2,3);
+        System.out.println("La potencia da:"+resu);
+        
+
 
 
     }
