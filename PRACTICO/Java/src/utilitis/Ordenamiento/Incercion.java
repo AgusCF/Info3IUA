@@ -2,9 +2,14 @@ package utilitis.Ordenamiento;
 import java.util.List;
 
 public class Incercion {
-    void IncercionV1(List<Pedido> pedidos){//Vercion armada por la clase
+    public void incercionV1(List<Pedido> pedidos){//Vercion armada por la clase
+        CargDeFun funcion = new CargDeFun();
         Pedido temp;
         int j;
+        if (funcion.itsEmpty(pedidos)) {
+            System.out.println("No se puede ordenar esta vacio");
+        }
+        
         for(int i = 1; i < pedidos.size(); i++) {  // Comenzamos desde el segundo elemento
             j = i;
             while (j > 0 && pedidos.get(j).getTiempo() < pedidos.get(j-1).getTiempo()) {
@@ -13,10 +18,11 @@ public class Incercion {
                 pedidos.set(j, pedidos.get(j-1));
                 pedidos.set(j-1, temp);
                 j--;
+            }
         }
     }
-    }
-    void IncercionV2(List<Pedido> pedidos){//Vercion optimizada de Incercion(La del ppt)
+
+    public void incercionV2(List<Pedido> pedidos){//Vercion optimizada de Incercion(La del ppt)
         // Recorremos la lista comenzando desde el segundo elemento
         for (int i = 1; i < pedidos.size(); i++) {
             Pedido temp = pedidos.get(i);  // Guardamos el pedido actual en temp

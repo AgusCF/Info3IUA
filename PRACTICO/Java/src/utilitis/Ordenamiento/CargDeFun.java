@@ -28,5 +28,11 @@ public class CargDeFun {
             System.out.println(pedido);
         });
     }
-
+    public boolean itsEmpty(List<Pedido> listaDePedidos){
+        if(listaDePedidos.size()==0){
+            return(true);
+        }
+        return(false);
+    }
+   
 }
