@@ -1,7 +1,6 @@
 package mains;
 
 import utilitis.Recurcividad.*;
-import utilitis.Ordenamiento.*;
 
 public class Proyecto_1_Recurcividad {
     public static void main(String[] args) throws Exception {
@@ -25,8 +24,7 @@ public class Proyecto_1_Recurcividad {
         System.out.println("La palabra invertida es: " + palabra );
         //--------------------------------EJE 5
         Potencia pot = new Potencia();
-        resu=pot.potenca(2,3);
-        System.out.println("La potencia da:"+resu);
+        System.out.println("La potencia da:"+pot.potencia(2,3));
         
 
 

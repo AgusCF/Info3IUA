@@ -1,10 +1,10 @@
 package utilitis.Recurcividad;
 public class Potencia {
-    public int potenca(int a, int b){
-        if (b==0) {
+    public int potencia(int base, int exponente){
+        if (exponente==0) {
             return(1);
         }else{
-            return(potenca(a, b-1)*a);
+            return(potencia(base, exponente-1)*base);
         }
     }
 }
