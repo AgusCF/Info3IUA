@@ -7,10 +7,12 @@ public class Pedido {
     private float precio;
 
     void Pedido(int tiempo, String nombreCliente, int pedido,float precio) {
-        this.tiempo = tiempo;
-        this.nombreCliente = nombreCliente;
-        this.pedido = pedido;
-        this.precio=precio;
+        setNombreCliente(nombreCliente);
+        setPedido(pedido);
+        setTiempo(tiempo);
+        setPrecio(precio);
+    }
+    void Pedido(){
     }
 
     public int getPedido() {
@@ -43,7 +45,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return ("Pedido [tiempo=" + tiempo + ", nombreCliente=" + nombreCliente + ", pedido=" + pedido + ", precio="+ precio + "]");
+        return ("Pedido [Tiempo= " + tiempo + ", NombreCliente= " + nombreCliente + ", Pedido=" + pedido + ", Precio= "+ precio + "]");
     }
     
 }
