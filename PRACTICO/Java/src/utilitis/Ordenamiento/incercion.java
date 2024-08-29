@@ -1,5 +1,10 @@
 package utilitis.Ordenamiento;
 
-public class incercion {
-    
+public class Incercion {
+    void incercionV1(ArrayList<Pedido>){
+
+    }
+    void incercionV2(ArrayList<Pedido>){//Vercion optimizada de Incercion(La del ppt)
+
+    }
 }

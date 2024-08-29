@@ -1,5 +1,5 @@
 package utilitis.Ordenamiento;
 
-public class Quicksort {
+public class Ordenador {
 
 }
