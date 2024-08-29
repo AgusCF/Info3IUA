@@ -1,6 +1,7 @@
 package mains;
 
-import utilitis.*;
+import utilitis.Recurcividad.*;
+import utilitis.Ordenamiento.*;
 
 public class Proyecto_1_Recurcividad {
     public static void main(String[] args) throws Exception {
