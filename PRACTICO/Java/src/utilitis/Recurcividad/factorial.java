@@ -1,6 +1,6 @@
 package utilitis.Recurcividad;
 
-public class factorial {
+public class Factorial {
     public int facto(int n){
 
         if (n==0) {

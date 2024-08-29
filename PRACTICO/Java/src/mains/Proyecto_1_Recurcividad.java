@@ -5,7 +5,7 @@ import utilitis.Recurcividad.*;
 public class Proyecto_1_Recurcividad {
     public static void main(String[] args) throws Exception {
         //--------------------------------EJE 1
-        factorial facti = new factorial();
+        Factorial facti = new Factorial();
         int resu = 0; 
         resu = facti.facto(5);
         System.out.println("El resultado es " + resu);
@@ -18,7 +18,7 @@ public class Proyecto_1_Recurcividad {
         resu=fibo.fibonacchi(11);
         System.out.println("La secuencia de fibonacchi es:"+resu);
         //--------------------------------EJE 4
-        inversionLetras invertir = new inversionLetras();
+        InversionLetras invertir = new InversionLetras();
         String palabra = null;
         palabra = invertir.invertir("hola");
         System.out.println("La palabra invertida es: " + palabra );
