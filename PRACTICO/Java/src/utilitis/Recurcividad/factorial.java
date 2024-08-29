@@ -1,4 +1,4 @@
-package utilitis;
+package utilitis.Recurcividad;
 
 public class factorial {
     public int facto(int n){

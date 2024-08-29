@@ -1,4 +1,4 @@
-package utilitis;
+package utilitis.Recurcividad;
 
 public class SumaNumNaturales {
     public int sum(int num){

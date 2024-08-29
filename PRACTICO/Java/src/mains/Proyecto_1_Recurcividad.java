@@ -2,7 +2,7 @@ package mains;
 
 import utilitis.*;
 
-public class App {
+public class Proyecto_1_Recurcividad {
     public static void main(String[] args) throws Exception {
         //--------------------------------EJE 1
         factorial facti = new factorial();

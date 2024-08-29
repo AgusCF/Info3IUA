@@ -1,4 +1,4 @@
-package utilitis;
+package utilitis.Recurcividad;
 public class Potencia {
     public int potenca(int a, int b){
         if (b==0) {
