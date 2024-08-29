@@ -1,7 +1,9 @@
 package mains;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import utilitis.Ordenamiento.MenuRes;
+import utilitis.Ordenamiento.Pedido;
 
 
 
@@ -10,6 +12,7 @@ public class Proyecto_2_Ordenamiento {
         MenuRes menu = new MenuRes();
         Scanner entrada = new Scanner(System.in);
         int eleccion = 0;
+        ArrayList<Pedido> listaDePedidos = new ArrayList<Pedido>()
         
         do {
             menu.mostrarMenu();
@@ -28,7 +31,7 @@ public class Proyecto_2_Ordenamiento {
                     
                     break;
                 default:
-                    throw new AssertionError();
+                    break;
             }
 
         } while (eleccion!=5);

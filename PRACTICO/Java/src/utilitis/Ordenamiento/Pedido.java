@@ -45,6 +45,5 @@ public class Pedido {
     public String toString() {
         return ("Pedido [tiempo=" + tiempo + ", nombreCliente=" + nombreCliente + ", pedido=" + pedido + ", precio="+ precio + "]");
     }
-
     
 }
