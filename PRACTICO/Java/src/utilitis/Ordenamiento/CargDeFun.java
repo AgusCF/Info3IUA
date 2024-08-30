@@ -34,5 +34,13 @@ public class CargDeFun {
         }
         return(false);
     }
-   
+   public void borrarElmentoLista(List<Pedido> listaDePedidos){
+        //se podria poner que primero imprima la lista......
+        //mostrarListado(listaDePedidos);
+        System.out.println("Ingrese el nombre del cliente cuyo pedido desa eliminar:");
+        System.out.print("\nCliente (Nombre): ");
+        entrada.nextLine();
+        listaDePedidos.removeIf(pedido -> pedido.getNombreCliente() == entrada.toString());
+        //El comando removeIf solo funcion en verciones de java 8 o superiores
+   }
 }
