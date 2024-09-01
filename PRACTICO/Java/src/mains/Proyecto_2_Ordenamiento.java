@@ -26,11 +26,11 @@ public class Proyecto_2_Ordenamiento {
             menu.mostrarMenu();
             eleccion = entrada.nextInt();
             switch (eleccion) {
-                case 1:
+                case 1://Ingresar pedido:
                     funcion.cargagrPedido(listaDePedidos);
                     funcion.mostrarListado(listaDePedidos);
                     break;
-                case 2:
+                case 2://Ordenar pedido por preparacion (Insercion)
                     System.out.println("Seleccione tipo de Insercion:");
                     System.out.println("1-IncersionV1(Version armada por estudiantes)");
                     System.out.println("2-IncersionV2Version optimizada");
@@ -51,17 +51,29 @@ public class Proyecto_2_Ordenamiento {
                     }
                     
                     break;
-                case 3:
+                case 3://Ordenar pedido por precio total (Shellsort)
                     
                     break;
-                case 4:
+                case 4://Ordenar pedido por nombre del cliente (Quicksort)
                     
+                    break;
+                case 5://Eliminar pedido
+                    //funcion.borrarElmentoLista(listaDePedidos);
+                    //No anda
+                    break;
+                case 6://Modificar pedido
+                    break;
+                case 7://Mostrar todos los pedidos
+                    funcion.mostrarListado(listaDePedidos);
+                    break;
+                case 8://Exit.
                     break;
                 default:
+                    System.out.println("La opcion ingresada no corresponde a ninguna operacion");
                     break;
             }
 
-        } while (eleccion!=5);
+        } while (eleccion!=8);
         entrada.close();
     }
 }
