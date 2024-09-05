@@ -6,14 +6,14 @@ public class Pedido {
     private int pedido;
     private float precio;
 
-    void Pedido(int tiempo, String nombreCliente, int pedido, float precio) {
+    public Pedido(int tiempo, String nombreCliente, int pedido, float precio) {
         setNombreCliente(nombreCliente);
         setPedido(pedido);
         setTiempo(tiempo);
         setPrecio(precio);
     }
 
-    void Pedido() {
+    public Pedido() {
     }
 
     public int getPedido() {
