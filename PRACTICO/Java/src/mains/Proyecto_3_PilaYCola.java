@@ -8,56 +8,42 @@ import utilitis.Ordenamiento.Incercion;
 import utilitis.Ordenamiento.MenuRes;
 import utilitis.Ordenamiento.Pedido;
 import utilitis.Ordenamiento.Shellsort;
+import utilitis.PilaYCola.MenuColoYPila;
 
 public class Proyecto_3_PilaYCola {
     public static void main(String[] args) throws Exception {
         MenuRes menu = new MenuRes();
         CargDeFun funcion = new CargDeFun();
-        Incercion incercion = new Incercion();
-        Shellsort shellsort = new Shellsort();
+        MenuColoYPila menuColYPi = new MenuColoYPila();
 
         Scanner entrada = new Scanner(System.in);
-        int eleccion = 0;
-        int eleccionInterna = 0;
 
-        List<Pedido> listaDePedidos = new ArrayList<Pedido>();
+        int eleccion = 0;
 
         do {
-            menu.mostrarMenu();
+            System.out.println("Menu Principal");
+            System.out.println("""
+                        *** Selecione que desea utilizar ***
+                    1. Pila
+                    2. Cola
+                    9. Salir""");
+            System.out.print("Eleccion: ");
             eleccion = entrada.nextInt();
-            switch (eleccion) {
-                case 1:// Ingresar pedido:
-                    funcion.cargagrPedido(listaDePedidos);
-                    funcion.mostrarListado(listaDePedidos);
-                    break;
-                case 2:// Ordenar pedido por preparacion (Insercion)
-                    funcion.cargarDiespedisos(listaDePedidos);
-                    break;
-                case 3:// Ordenar pedido por preparacion (Insercion)
-                    incercion.menuIncercion(listaDePedidos);
-                    break;
-                case 4:// Ordenar pedido por precio total (Shellsort)
-                    shellsort.menuShell(listaDePedidos);
-                    break;
-                case 5:// Ordenar pedido por nombre del cliente (Quicksort)
 
+            switch (eleccion) {
+                case 1:
+                    menuColYPi.menuPila();
                     break;
-                case 6:// Eliminar pedido
-                    funcion.borrarElmentoLista(listaDePedidos);
+                case 2:
+                    menuColYPi.menuCola();
                     break;
-                case 7:// Modificar pedido
-                    break;
-                case 8:// Mostrar todos los pedidos
-                    funcion.mostrarListado(listaDePedidos);
-                    break;
-                case 9:// Exit.
-                    break;
+
                 default:
                     System.out.println("La opcion ingresada no corresponde a ninguna operacion");
                     break;
             }
 
-        } while (eleccion != 9);
+        } while (eleccion != 3);
         entrada.close();
     }
 }

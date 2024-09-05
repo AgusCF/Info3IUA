@@ -49,4 +49,12 @@ public class Cola {
             System.out.println("La cola está vacía.");
         }
     }
+
+    public void top() {
+        if (size > 0) {
+            System.out.println("El primer cliente en la cola es: " + pedidos[front].getNombreCliente());
+        } else {
+            System.out.println("La cola está vacía.");
+        }
+    }
 }
