@@ -5,13 +5,13 @@ import java.util.Scanner;
 import utilitis.Ordenamiento.Pedido;
 
 public class Cola {
-    Scanner entrada = new Scanner(System.in);
-    private Pedido[] pedidos = new Pedido[20];
-
     private int size = 0;
     private int back = -1, front = 0;
     private int idSum = 0;
     private int contador = 0;
+    private int tam = 20;
+    Scanner entrada = new Scanner(System.in);
+    private Pedido[] pedidos = new Pedido[tam];
 
     public void enqueue() {
 
@@ -31,7 +31,7 @@ public class Cola {
 
         newPedido.setPedido(idSum++);
 
-        if (size < 20) {
+        if (isFull()) {
             back = (back + 1) % 20;
             pedidos[back] = newPedido;
             size++;
@@ -42,7 +42,7 @@ public class Cola {
     }
 
     public void dequeue() {
-        if (size > 0) {
+        if (isEmpty()) {
             front = (front + 1) % 20;
             size--;
         } else {
@@ -51,10 +51,26 @@ public class Cola {
     }
 
     public void top() {
-        if (size > 0) {
+        if (isEmpty()) {
             System.out.println("El primer cliente en la cola es: " + pedidos[front].getNombreCliente());
         } else {
             System.out.println("La cola está vacía.");
+        }
+    }
+
+    public boolean isEmpty() {
+        if (size >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isFull() {
+        if (size <= tam) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
