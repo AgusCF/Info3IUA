@@ -16,6 +16,7 @@ public class MenuColoYPila {
                     3-Ver el pedido al frente de la Cola sin removerlo.
                     4-Exit.""");
             System.out.print("\nEleccion: ");
+            selecion = entrada.nextInt();
             switch (selecion) {
                 case 1:
                     cola.enqueue();
@@ -43,6 +44,7 @@ public class MenuColoYPila {
                     3-Ver el último pedido completado sin removerlo.
                     4-Exit.""");
             System.out.print("\nEleccion: ");
+            selecion = entrada.nextInt();
             switch (selecion) {
                 case 1:
 
