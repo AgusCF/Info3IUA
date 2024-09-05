@@ -35,7 +35,7 @@ public class MenuColoYPila {
                     break;
                 case 2:
                     // Remover el pedido al frente de la cola
-                    cola.dequeue();
+                    System.out.println("El pedido eliminado es: " + cola.dequeue());
                     break;
                 case 3:
                     // Ver el pedido al frente de la cola sin removerlo

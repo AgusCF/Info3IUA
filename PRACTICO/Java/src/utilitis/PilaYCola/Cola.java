@@ -8,8 +8,9 @@ public class Cola {
     private int size = 0;
     private int back = -1, front = 0;
     private int idSum = 0;
-    private int contador = 0;
     private int tam = 20;
+
+    Pedido aux = null;
     Scanner entrada = new Scanner(System.in);
     private Pedido[] pedidos = new Pedido[tam];
 
@@ -41,20 +42,24 @@ public class Cola {
 
     }
 
-    public void dequeue() {
+    public Pedido dequeue() {
         if (isEmpty()) {
+            aux = pedidos[front];
             front = (front + 1) % 20;
             size--;
+            return aux;
         } else {
             System.out.println("La cola está vacía.");
+            return null;
         }
     }
 
-    public void top() {
+    public Pedido top() {
         if (isEmpty()) {
-            System.out.println("El primer cliente en la cola es: " + pedidos[front].getNombreCliente());
+            return pedidos[front];
         } else {
             System.out.println("La cola está vacía.");
+            return null;
         }
     }
 
