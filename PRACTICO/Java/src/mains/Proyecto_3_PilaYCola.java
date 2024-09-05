@@ -7,13 +7,17 @@ import utilitis.Ordenamiento.Incercion;
 import utilitis.Ordenamiento.MenuRes;
 import utilitis.Ordenamiento.Pedido;
 import utilitis.Ordenamiento.Shellsort;
+import utilitis.PilaYCola.Cola;
 import utilitis.PilaYCola.MenuColoYPila;
+import utilitis.PilaYCola.Pila;
 
 public class Proyecto_3_PilaYCola {
     public static void main(String[] args) throws Exception {
         // Crea instancias de las clases que manejarán las funcionalidades del menú
         MenuRes menu = new MenuRes();
         MenuColoYPila menuColYPi = new MenuColoYPila(); // Menú para Pila y Cola
+        Pila pila=new Pila();
+        Cola cola= new Cola();
 
         // Scanner para recibir la entrada del usuario
         Scanner entrada = new Scanner(System.in);
