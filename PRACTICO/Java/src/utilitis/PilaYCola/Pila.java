@@ -21,11 +21,11 @@ public class Pila {
     }
     // Fin funciones de control---------------------
 
-    public void push(Pedido[] cola) {
+    public void push(Pedido cola) {
         if (isFull(top)) {
             System.out.println("No se puede realizar el PUSH en la Pila porque esta llena");
         } else {
-            pilaPedido[++top] = cola[10]; // Ver que onda el tema cola
+            pilaPedido[++top] =cola; // Ver que onda el tema cola
         }
 
     }

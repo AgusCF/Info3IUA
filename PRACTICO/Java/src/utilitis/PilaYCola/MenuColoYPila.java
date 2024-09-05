@@ -14,6 +14,8 @@ public class MenuColoYPila {
 
     // Método para mostrar y gestionar el menú de operaciones con la Cola
     public void menuCola() {
+        Pila pila=new Pila();
+        Cola cola= new Cola();
         do {
             // Menú de opciones para la Cola
             System.out.println("******** MENU ********");
@@ -35,7 +37,8 @@ public class MenuColoYPila {
                     break;
                 case 2:
                     // Remover el pedido al frente de la cola
-                    cola.dequeue();
+                    pila.push(cola.top());//Cargo el peido eliminado en la pila
+                    cola.dequeue();//Luego elimino el pedido
                     break;
                 case 3:
                     // Ver el pedido al frente de la cola sin removerlo
@@ -51,6 +54,8 @@ public class MenuColoYPila {
 
     // Método para mostrar y gestionar el menú de operaciones con la Pila
     public void menuPila() {
+        Pila pila=new Pila();
+        Cola cola= new Cola();
         do {
             // Menú de opciones para la Pila
             System.out.println("******** MENU ********");
@@ -70,7 +75,7 @@ public class MenuColoYPila {
 
                     break;
                 case 2:
-
+                    
                     break;
                 case 3:
 
