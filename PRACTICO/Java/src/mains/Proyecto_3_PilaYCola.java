@@ -57,7 +57,7 @@ public class Proyecto_3_PilaYCola {
                     break;
             }
 
-        } while (eleccion != 8);
+        } while (eleccion != 9);
         entrada.close();
     }
 }
