@@ -1,10 +1,22 @@
 package utilitis.Ordenamiento;
 
+import java.util.List;
+
 public class Quicksort {
-    public void quickSort(Pedido[] arreglo, int derecha, int izquierda) {
-        int i = 0, j = 0;
+    public void quickSort(List<Pedido> listaDePedidos, int derecha, int izquierda) {
+        int i = izquierda, j = derecha;
         Pedido aux = null;
         do {
+            for (i = i; listaDePedidos.get(j).getNombreCliente()
+                    .compareTo(listaDePedidos.get(i).getNombreCliente()) > 0
+                    && j < i; j--) {
+                if (i < j) {
+                    aux = listaDePedidos.get(i);
+                    listaDePedidos.set(i, listaDePedidos.get(j));
+                    listaDePedidos.set(j, aux);
+                    i++;
+                }
+            }
 
         } while (i < j);
     }
@@ -15,7 +27,8 @@ public class Quicksort {
  * i = left;
  * j = right;
  * do {
- * while ( item [j] > item [i] && j>i) j-- ;
+ * while ( item [j] > item [i] && j>i)
+ * j-- ;
  * if ( i<j ) {
  * temp=item[i];
  * item[i] = item[j];
