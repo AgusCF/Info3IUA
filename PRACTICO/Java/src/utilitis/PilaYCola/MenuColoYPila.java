@@ -40,8 +40,8 @@ public class MenuColoYPila {
 
                     System.out.println("El pedido eliminado es: " + cola.dequeue());
 
-                    pila.push(cola.top());// Cargo el peido eliminado en la pila
-                    cola.dequeue();// Luego elimino el pedido
+                    pila.push(cola.dequeue());// Cargo el peido eliminado en la pila
+                    // Luego elimino el pedido
 
                     break;
                 case 3:

@@ -33,7 +33,7 @@ public class Cola {
         newPedido.setPedido(idSum++);
 
         if (isFull()) {
-            back = (back + 1) % 20;
+            back = (back + 1) % tam;
             pedidos[back] = newPedido;
             size++;
         } else {
