@@ -37,11 +37,10 @@ public class MenuColoYPila {
                     break;
                 case 2:
                     // Remover el pedido al frente de la cola
-
                     System.out.println("El pedido eliminado es: " + cola.dequeue());
 
-                    pila.push(cola.dequeue());// Cargo el peido eliminado en la pila
-                    // Luego elimino el pedido
+                    pila.push(cola.top());// Cargo el peido eliminado en la pila
+                    cola.dequeue();// Luego elimino el pedido
 
                     break;
                 case 3:

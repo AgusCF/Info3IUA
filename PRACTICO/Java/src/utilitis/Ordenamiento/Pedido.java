@@ -50,7 +50,8 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return ("Pedido [Tiempo= " + tiempo + ", NombreCliente= " + nombreCliente + ", Pedido=" + pedido + ", Precio= "
+        return ("Pedido [Tiempo:" + tiempo + ", NombreCliente: " + nombreCliente + ", Pedido: " + pedido
+                + ", Precio: "
                 + precio + "]");
     }
 

@@ -58,13 +58,12 @@ public class CargDeFun {
         // entrada.toString());
         // El comando removeIf solo funcion en verciones de java 8 o superiores
     }
-    
 
     public void cargarDiespedisos(List<Pedido> listaDePedidos) {
         Random aleatorio = new Random();
         for (int i = 0; i < 10; i++) {
             Pedido newPedido = new Pedido();
-            newPedido.setNombreCliente("Pureva-" + i);
+            newPedido.setNombreCliente("Pureva-" + aleatorio.nextInt(100));
 
             newPedido.setTiempo(aleatorio.nextInt(30));
 

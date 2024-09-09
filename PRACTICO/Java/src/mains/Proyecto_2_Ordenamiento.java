@@ -7,6 +7,7 @@ import utilitis.Ordenamiento.CargDeFun;
 import utilitis.Ordenamiento.Incercion;
 import utilitis.Ordenamiento.MenuRes;
 import utilitis.Ordenamiento.Pedido;
+import utilitis.Ordenamiento.Quicksort;
 import utilitis.Ordenamiento.Shellsort;
 
 public class Proyecto_2_Ordenamiento {
@@ -15,6 +16,7 @@ public class Proyecto_2_Ordenamiento {
         CargDeFun funcion = new CargDeFun();
         Incercion incercion = new Incercion();
         Shellsort shellsort = new Shellsort();
+        Quicksort quicksort = new Quicksort();
 
         Scanner entrada = new Scanner(System.in);
         int eleccion = 0;
@@ -40,7 +42,8 @@ public class Proyecto_2_Ordenamiento {
                     shellsort.menuShell(listaDePedidos);
                     break;
                 case 5:// Ordenar pedido por nombre del cliente (Quicksort)
-
+                    quicksort.quickSort(listaDePedidos, 0, listaDePedidos.size() - 1);
+                    funcion.mostrarListado(listaDePedidos);
                     break;
                 case 6:// Eliminar pedido
                     funcion.borrarElmentoLista(listaDePedidos);
