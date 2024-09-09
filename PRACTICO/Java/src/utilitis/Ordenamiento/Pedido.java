@@ -1,6 +1,6 @@
 package utilitis.Ordenamiento;
 
-public class Pedido {
+public class Pedido implements Comparable<Pedido> {
     private int tiempo; // Tiempo en minutos
     private String nombreCliente;
     private int pedido;
@@ -50,9 +50,14 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return ("Pedido [Tiempo:" + tiempo + ", NombreCliente: " + nombreCliente + ", Pedido: " + pedido
-                + ", Precio: "
-                + precio + "]");
+        return ("Pedido [Tiempo: " + tiempo + ", NombreCliente: " + nombreCliente + ", Pedido: " + pedido
+                + ", Precio: " + precio + "]");
     }
 
+    // Implementación del método compareTo de la interfaz Comparable
+    @Override
+    public int compareTo(Pedido otroPedido) {
+        // Ordenar por nombre del cliente
+        return this.nombreCliente.compareTo(otroPedido.getNombreCliente());
+    }
 }

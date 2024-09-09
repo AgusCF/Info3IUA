@@ -16,8 +16,8 @@ public class Proyecto_3_PilaYCola {
         // Crea instancias de las clases que manejarán las funcionalidades del menú
         MenuRes menu = new MenuRes();
         MenuColoYPila menuColYPi = new MenuColoYPila(); // Menú para Pila y Cola
-        Pila pila=new Pila();
-        Cola cola= new Cola();
+        Pila pila = new Pila();
+        Cola cola = new Cola();
 
         // Scanner para recibir la entrada del usuario
         Scanner entrada = new Scanner(System.in);
@@ -49,8 +49,8 @@ public class Proyecto_3_PilaYCola {
                     // Si elige 2, mostrar el menú relacionado con la Cola
                     menuColYPi.menuCola();
                     break;
-                case 9:
-                    // Si elige 9, el programa termina, no hace falta ningún código aquí
+                case 3:
+                    // Si elige 3, el programa termina, no hace falta ningún código aquí
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
@@ -60,7 +60,7 @@ public class Proyecto_3_PilaYCola {
             }
 
             // Continuar mostrando el menú mientras no seleccione salir (opción 9)
-        } while (eleccion != 9);
+        } while (eleccion != 3);
 
         // Cerrar el Scanner para liberar los recursos
         entrada.close();
