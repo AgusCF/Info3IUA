@@ -1,6 +1,8 @@
 package utilitis.Ordenamiento;
 
-public class Pedido implements Comparable<Pedido> {
+import java.lang.reflect.Field;
+
+public class Pedido implements ComparableCustom<Pedido, String> {
     private int tiempo; // Tiempo en minutos
     private String nombreCliente;
     private int pedido;
@@ -55,9 +57,49 @@ public class Pedido implements Comparable<Pedido> {
     }
 
     // Implementación del método compareTo de la interfaz Comparable
+    // @Override
+    // public int compareTo(Pedido otroPedido, String orderBy) {
+    //     // Ordenar por nombre del cliente
+
+    //     switch (orderBy) {
+    //         case "nombreCliente":
+    //             return this.nombreCliente.compareTo(otroPedido.getNombreCliente());        
+    //         case "precio":
+    //             return Float.compare(this.precio, otroPedido.getPrecio());
+    //         default:
+    //             System.out.println("Method is not implement");
+    //             return 0;
+    //     }
+        
+    // }
+
     @Override
-    public int compareTo(Pedido otroPedido) {
-        // Ordenar por nombre del cliente
-        return this.nombreCliente.compareTo(otroPedido.getNombreCliente());
+    public int compareTo(Pedido otroPedido, String orderBy) {
+        try {
+            // Usamos reflection para obtener el atributo basado en el nombre
+            Field field = Pedido.class.getDeclaredField(orderBy);
+            field.setAccessible(true); // Acceso a campos privados
+
+            // Obtenemos los valores de los atributos de ambos objetos
+            Object valorThis = field.get(this);
+            Object valorOtro = field.get(otroPedido);
+
+            // Comparamos según el tipo de dato
+            if (valorThis instanceof String) {
+                return ((String) valorThis).compareTo((String) valorOtro);
+            } else if (valorThis instanceof Float) {
+                return Float.compare((Float) valorThis, (Float) valorOtro);
+            } else if (valorThis instanceof Integer) {
+                return Integer.compare((Integer) valorThis, (Integer) valorOtro);
+            } else {
+                System.out.println("Unsupported attribute type for comparison.");
+                return 0;
+            }
+
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            System.out.println("Field not found or inaccessible: " + orderBy);
+            return 0;
+        }
     }
+
 }

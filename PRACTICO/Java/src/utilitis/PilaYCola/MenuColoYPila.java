@@ -4,6 +4,7 @@ import java.util.Scanner;
 import utilitis.Ordenamiento.Pedido;
 
 public class MenuColoYPila {
+
     int tam = 20;
     Pedido[] pedidos = new Pedido[tam];
     int cantidadPedidos = 0; // Para llevar la cuenta de los pedidos en el arreglo
@@ -63,7 +64,8 @@ public class MenuColoYPila {
                     break;
                 case 4:
                     // Ordenar pedidos usando QuickSort
-                    quicksortGenerico.quickSort(pedidos, 0, cantidadPedidos - 1);
+                    String orderBy = "nombreCliente";
+                    quicksortGenerico.quickSort(pedidos, 0, cantidadPedidos - 1,orderBy);
                     break;
                 default:
                     break;
@@ -83,11 +85,15 @@ public class MenuColoYPila {
                     2-Remover el último pedido de la Pila.
                     3-Ver el último pedido completado sin removerlo.
                     4-Ordenar por nombre del cliente.
-                    5-Exit.""");
+                    5-Ordenar por nombre del precio.
+                    6-Exit.""");
             System.out.print("\nEleccion: ");
 
             // Leer la opción seleccionada por el usuario
             selecion = entrada.nextInt();
+
+            String orderBy;
+            QuicksortGenerico quicksortGenerico = new QuicksortGenerico();
 
             // Seleccionamos la acción a realizar según la elección
             switch (selecion) {
@@ -95,8 +101,15 @@ public class MenuColoYPila {
                     // Agregar un pedido a la pila
                     if (cantidadPedidos < tam) {
                         Pedido pedido = new Pedido(); // Deberías permitir al usuario ingresar los detalles del pedido
+                        Double precio = Math.random();
+                        pedido.setTiempo(1);
+                        String nombre = "Pedido ";
+                        nombre += Math.random();
+                        pedido.setNombreCliente(nombre);
+                        pedido.setPrecio(precio.floatValue());
                         pila.push(pedido);
                         pedidos[cantidadPedidos++] = pedido;
+                        System.out.println(pedido.toString());
                     } else {
                         System.out.println("La pila está llena.");
                     }
@@ -110,14 +123,35 @@ public class MenuColoYPila {
                     break;
                 case 4:
                     // Ordenar por nombre del cliente
-                    QuicksortGenerico quicksortGenerico = new QuicksortGenerico();
-                    quicksortGenerico.quickSort(pedidos, 0, cantidadPedidos - 1);
+                    orderBy = "nombreCliente";
+                    quicksortGenerico.quickSort(pedidos, 0, cantidadPedidos - 1, orderBy);
+                    showPedidos();
                     break;
+                case 5:
+                    // Ordenar por nombre del cliente
+                    orderBy = "precio";
+                    quicksortGenerico.quickSort(pedidos, 0, cantidadPedidos - 1, orderBy);
+                    showPedidos();
+                    break;
+                case 6:
+                    // Ordenar por nombre del cliente
+                    orderBy = "tiempo";
+                    quicksortGenerico.quickSort(pedidos, 0, cantidadPedidos - 1, orderBy);
+                    showPedidos();
+                    break;    
                 default:
                     break;
             }
 
             // El ciclo se repite hasta que el usuario elija salir (opción 5)
-        } while (selecion != 5);
+        } while (selecion != 7);
     }
+
+    public void showPedidos(){
+        for (int i = 0; i < cantidadPedidos; i++) {
+            Pedido pedido = pedidos[i];
+            System.out.println(pedido.toString());
+        }
+    }
+
 }

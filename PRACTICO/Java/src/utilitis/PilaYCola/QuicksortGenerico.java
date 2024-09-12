@@ -1,5 +1,6 @@
 package utilitis.PilaYCola;
 
+import utilitis.Ordenamiento.ComparableCustom;
 import utilitis.Ordenamiento.Pedido;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public class QuicksortGenerico {
 
     // Método quickSort genérico para arreglos
-    public <T extends Comparable<T>> void quickSort(T[] array, int izquierda, int derecha) {
+    public <T extends ComparableCustom<T, String>> void quickSort(T[] array, int izquierda, int derecha, String orderBy) {
         if (izquierda < derecha) {
             // Elegir el pivote (usamos el elemento central)
             T pivote = array[(izquierda + derecha) / 2];
@@ -18,12 +19,12 @@ public class QuicksortGenerico {
             // Hacer la partición
             while (i <= j) {
                 // Busca un elemento mayor que el pivote desde la izquierda
-                while (array[i].compareTo(pivote) < 0) {
+                while (array[i].compareTo(pivote, orderBy) < 0) {
                     i++;
                 }
 
                 // Busca un elemento menor que el pivote desde la derecha
-                while (array[j].compareTo(pivote) > 0) {
+                while (array[j].compareTo(pivote, orderBy) > 0) {
                     j--;
                 }
 
@@ -39,10 +40,10 @@ public class QuicksortGenerico {
 
             // Llamada recursiva a las dos particiones
             if (izquierda < j) {
-                quickSort(array, izquierda, j);
+                quickSort(array, izquierda, j, orderBy);
             }
             if (i < derecha) {
-                quickSort(array, i, derecha);
+                quickSort(array, i, derecha, orderBy);
             }
         }
     }

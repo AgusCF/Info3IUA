@@ -3,6 +3,8 @@ package mains;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import utilitis.Ordenamiento.CargDeFun;
 import utilitis.Ordenamiento.Incercion;
 import utilitis.Ordenamiento.MenuRes;
 import utilitis.Ordenamiento.Pedido;
