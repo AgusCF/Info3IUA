@@ -7,10 +7,10 @@ public class Pedido implements Comparable<Pedido> {
     private float precio;
 
     public Pedido(int tiempo, String nombreCliente, int pedido, float precio) {
-        setNombreCliente(nombreCliente);
-        setPedido(pedido);
-        setTiempo(tiempo);
-        setPrecio(precio);
+        this.nombreCliente=nombreCliente;
+        this.pedido=pedido;
+        this.tiempo=tiempo;
+        this.precio=precio;
     }
 
     public Pedido() {
