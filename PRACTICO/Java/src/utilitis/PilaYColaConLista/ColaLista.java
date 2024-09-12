@@ -9,7 +9,10 @@ public class ColaLista {
     public ColaLista(){
         front=back=null;
     }
-    public void enqueue(Pedido pedidos) {
+    public void enqueue() {
+        Pedido pedidos = new Pedido();
+        CargarDatos car = new CargarDatos();
+        car.cargarDatos(pedidos);
         if(isEmpty()){
             back=front=new Node<Pedido>(pedidos);
         }else{

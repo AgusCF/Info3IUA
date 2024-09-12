@@ -24,7 +24,7 @@ public class menuImplementacionListas {
             // Seleccionamos la acción a realizar según la elección
             switch (selecion) {
                 case 1:
-                    cola.enqueue(pedidos);
+                    cola.enqueue();
                     break;
                 case 2:
                     pila.push(cola.dequeue());
