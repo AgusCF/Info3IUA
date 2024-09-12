@@ -7,17 +7,18 @@ public class ColaLista {
     private int size = 0;
     private int back = -1, front = 0;
     private int idSum = 0;*/
-    private Node front;
-    private Node back;
+    private Node<Pedido> front;
+    private Node<Pedido> back;
     Scanner entrada = new Scanner(System.in);
     public ColaLista(){
         front=back=null;
     }
     public void enqueue(Pedido pedidos) {
         if(isEmpty()){
-            back=front=new Node<>(pedidos);
+            back=front=new Node<Pedido>(pedidos);
         }else{
-            back=back.getNext()=new Node<>(pedidos);
+            back.setNext(new Node<Pedido>(pedidos));
+            back = back.getNext();
         }
     }
 
@@ -26,12 +27,15 @@ public class ColaLista {
             System.out.println("Cola vacia, no se puede eliminar nada");
         }
         Pedido deqValue = front.getData();
-        return();
+        front=front.getNext();
+        return(deqValue);
     }
 
     public Pedido getFont(Pedido pedidos){
-
-        return(pedidos);
+        if(isEmpty()){
+            System.out.println("No se puede devolver un elemento porque esta vacia");
+        }
+        return(front.getData());
     }
 
     public boolean isEmpty(){
@@ -39,6 +43,6 @@ public class ColaLista {
     }
 
     public void makeEmpty(){
-
+        front=back=null;
     }
 }
