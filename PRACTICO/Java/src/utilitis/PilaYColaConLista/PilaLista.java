@@ -1,54 +1,56 @@
 package utilitis.PilaYColaConLista;
 
-import java.util.EmptyStackException;
-import java.util.Scanner;
 import utilitis.Ordenamiento.Pedido;
 
 public class PilaLista {
-    private int idSum = 1;
-    Scanner entrada = new Scanner(System.in);
-    private Node topOFStak;
+    
+    private Node<Pedido> topOFStak;
+    private int canDenode = 0;
 
-    public void push(){
+    public void push(Pedido newPedido){
         if (isEmpty()) {
-            Pedido newPedido = new  Pedido();
-            cargarDatos(newPedido);
-            Node newNode = new Node<>(newPedido);
+            Node newNode = new Node<Pedido>(newPedido);
             topOFStak = newNode;
+            canDenode++;
         }
         else{
-            Pedido newPedido = new  Pedido();
-            cargarDatos(newPedido);
-            Node newNode = new Node<>(newPedido);
+            Node newNode = new Node<Pedido>(newPedido);
             newNode.setNext(topOFStak);
             topOFStak = newNode;
+            canDenode++;
         }
-
-        
     }
-    public void pop(){
+
+    public Pedido pop(){
         if (isEmpty()) {
+            return null;
+        }
+        else{
+        topOFStak=topOFStak.getNext();
+        canDenode--;
+        return topOFStak.getData();
+        }
+    }
+
+    public Pedido top(){
+        if (isEmpty()) {
+            return null;
+        }
+        else{
+        return topOFStak.getData();
         }
     }
 
     public boolean isEmpty(){
         return topOFStak == null;
     }
-
-    public void cargarDatos(Pedido newPedido){
-        System.out.println("Ingresa los datos a continuacion:");
-        System.out.print("\nCliente (Nombre): ");
-        if (idSum != 1) {
-            entrada.nextLine();
-        }
-        newPedido.setNombreCliente(entrada.nextLine());
-
-        System.out.print("\nIngresa el tiempo de preparacion(minutos): ");
-        newPedido.setTiempo(entrada.nextInt());
-
-        System.out.print("\nIngresa el precio: ");
-        newPedido.setPrecio(entrada.nextFloat());
-
-        newPedido.setPedido(idSum++);
+    public int size(){
+        return canDenode + 1;
     }
+
+    public void makeEmpty(){
+        topOFStak.setData(null);
+        topOFStak.setNext(null);
+    }
+
 }

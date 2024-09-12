@@ -1,9 +1,6 @@
 package utilitis.PilaYColaConLista;
 import java.util.Scanner;
 import utilitis.Ordenamiento.Pedido;
-import utilitis.PilaYCola.Cola;
-import utilitis.PilaYCola.Pila;
-import utilitis.PilaYCola.QuicksortGenerico;
 public class menuImplementacionListas {
     Pedido pedidos= new Pedido();
     ColaLista cola = new ColaLista();
