@@ -3,10 +3,6 @@ import java.util.Scanner;
 import utilitis.Ordenamiento.Pedido;
 
 public class ColaLista {
-    /*
-    private int size = 0;
-    private int back = -1, front = 0;
-    private int idSum = 0;*/
     private Node<Pedido> front;
     private Node<Pedido> back;
     Scanner entrada = new Scanner(System.in);
@@ -31,7 +27,7 @@ public class ColaLista {
         return(deqValue);
     }
 
-    public Pedido getFont(Pedido pedidos){
+    public Pedido getFont(){
         if(isEmpty()){
             System.out.println("No se puede devolver un elemento porque esta vacia");
         }
