@@ -21,9 +21,10 @@ public class Proyecto_5_Arbol_Binario {
             System.out.println("""
                         *** Seleccione que desea utilizar ***
                     1. Ingresar un nuevo dato
-                    2. Mostrar todos los datos en orden
-                    3. Eliminar todo el arbol.
-                    4. Salir""");
+                    2. Ingresar 100 datos random.
+                    3. Mostrar todos los datos en orden
+                    4. Eliminar todo el arbol.
+                    5. Salir""");
             System.out.print("Eleccion: ");
 
             // Capturar la elección del usuario
@@ -37,12 +38,17 @@ public class Proyecto_5_Arbol_Binario {
                     root = arbol.insert(root, dato); // Insertar el dato en el árbol
                     break;
                 case 2:
+                    root = arbol.insert100(root);
                     break;
                 case 3:
+                    System.out.println("Datos en orden:");
+                    arbol.recorrerEnOrden(root); // Llama al método para imprimir en orden
+                    break;
+                case 4:
                     root = null; // Eliminar el árbol asignando root a null
                     System.out.println("El árbol ha sido eliminado.");
                     break;
-                case 4:
+                case 5:
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
@@ -51,7 +57,7 @@ public class Proyecto_5_Arbol_Binario {
                     break;
             }
 
-        } while (eleccion != 4); // Salir cuando se elige la opción 4
+        } while (eleccion != 5); // Salir cuando se elige la opción 4
 
         // Cerrar el Scanner para liberar los recursos
         entrada.close();
