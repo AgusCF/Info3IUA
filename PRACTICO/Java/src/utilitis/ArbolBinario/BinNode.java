@@ -1,91 +1,99 @@
-public class BinNode {
-    private int element;
-    private BinNode left;
-    private BinNode right;
-    public BinNode(){}//Por defecto
-    public BinNode(int element,BinNode left,BinNode right){
-        this.element=element;
-        this.left=left;
-        this.right=right;
-    }
-    public int getElement() {
-        return element;
-    }
-    public void setElement(int element) {
-        this.element = element;
-    }
-    public BinNode getLeft() {
-        return left;
-    }
-    public void setLeft(BinNode left) {
-        this.left = left;
-    }
-    public BinNode getRight() {
-        return right;
-    }
-    public void setRight(BinNode right) {
-        this.right = right;
-    }
-    //Metodos-------------(Completarlos)
-    //~~~~(Los return estan para que no de error.. Pero retornan otra cosa)
-    public void incersion(){
-    }
-    public int busqueda(){
-        return(0);
-    }
-    public void eliminacion(){
-        
-    }
-    public void printInOrder(){//Desordenado(Como lo cargue)
-        if(left !=null){
-            left.printInOrder();
-        }
-        System.out.println(element);
-        if(right != null){
-            right.printInOrder();
-        }
-    }
-    public void printPreOrder(){//Mayor amenor
-        System.out.println(element);//El nodo en el que estoy
-        if(left != null){//El menor que el nodo en el que estoy
-            left.printPreOrder();
-        }
-        if(right != null){//El mayor que el nodo en el que estoy
-            right.printPreOrder();
-        }
-    }
-    public void printPostOrder(){//Menor a mayor
-        if(left != null){//El menor que el nodo en el que estoy
-            left.printPostOrder();
-        }
-        if(right != null){//El mayor que el nodo en el que estoy
-            right.printPostOrder();
-        }
-        System.out.println(element);//El nodo en el que estoy
-    }
-    public static int size(BinNode t){
-        if(t == null){
-            return(0);
-        }else{
-            return 1 + size(t.left)+size(t.right);
-        }
-    }
-    public static int height(BinNode t){
-        if(t == null){
-            return(-1);
-        }else{
-            return 1 + Math.max(height(t.left),height(t.right));
-        }
-    }
-    public BinNode duplicate(){
-        BinNode root=new BinNode(element, null, null);
-        if(left != null){
-            root.left = left.duplicate();
-        }
-        if(right != null){
-            root.right = right.duplicate();
-        }
-        return(root);
+package utilitis.ArbolBinario;
+
+/**
+ * Clase que representa un nodo en un árbol binario.
+ *
+ * @param <T> Tipo de dato que almacena el nodo. Debe ser comparable.
+ */
+public class BinNode<T> {
+    // Elemento almacenado en el nodo
+    private T element;
+    // Referencia al hijo izquierdo del nodo
+    private BinNode<T> left;
+    // Referencia al hijo derecho del nodo
+    private BinNode<T> right;
+
+    /**
+     * Constructor por defecto que inicializa un nodo vacío.
+     */
+    public BinNode() {
     }
 
+    /**
+     * Constructor para crear un nodo terminal con un elemento específico.
+     *
+     * @param element El elemento a almacenar en el nodo.
+     */
+    public BinNode(T element) {
+        this.element = element; // Asigna el elemento al nodo
+        this.left = null; // Inicializa el hijo izquierdo como nulo
+        this.right = null; // Inicializa el hijo derecho como nulo
+    }
+
+    /**
+     * Constructor para crear un nodo con un elemento y referencias a sus hijos.
+     *
+     * @param element El elemento a almacenar en el nodo.
+     * @param left    Referencia al hijo izquierdo.
+     * @param right   Referencia al hijo derecho.
+     */
+    public BinNode(T element, BinNode<T> left, BinNode<T> right) {
+        this.element = element; // Asigna el elemento al nodo
+        this.left = left; // Asigna el hijo izquierdo
+        this.right = right; // Asigna el hijo derecho
+    }
+
+    /**
+     * Obtiene el elemento almacenado en el nodo.
+     *
+     * @return El elemento del nodo.
+     */
+    public T getElement() {
+        return element;
+    }
+
+    /**
+     * Establece un nuevo elemento en el nodo.
+     *
+     * @param element El nuevo elemento a almacenar.
+     */
+    public void setElement(T element) {
+        this.element = element;
+    }
+
+    /**
+     * Obtiene el hijo izquierdo del nodo.
+     *
+     * @return Referencia al hijo izquierdo.
+     */
+    public BinNode<T> getLeft() {
+        return left;
+    }
+
+    /**
+     * Establece el hijo izquierdo del nodo.
+     *
+     * @param left Referencia al nuevo hijo izquierdo.
+     */
+    public void setLeft(BinNode<T> left) {
+        this.left = left;
+    }
+
+    /**
+     * Obtiene el hijo derecho del nodo.
+     *
+     * @return Referencia al hijo derecho.
+     */
+    public BinNode<T> getRight() {
+        return right;
+    }
+
+    /**
+     * Establece el hijo derecho del nodo.
+     *
+     * @param right Referencia al nuevo hijo derecho.
+     */
+    public void setRight(BinNode<T> right) {
+        this.right = right;
+    }
 }
