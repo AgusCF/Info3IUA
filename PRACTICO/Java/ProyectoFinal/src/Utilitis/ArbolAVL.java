@@ -110,5 +110,37 @@ public class ArbolAVL<T extends Comparable<T>> {
         printInOrder(rama); // Llama al método privado
         System.out.println(); // Nueva línea al final
     }
+    //Imprimir con ramas:
+    public void imprimirArbolConRamas(Node<T> nodo, String prefix, boolean esHijoDerecho) {
+        if (nodo != null) {
+            // Llamada recursiva al subárbol derecho
+            imprimirArbolConRamas(nodo.getRight(), prefix + (esHijoDerecho ? "       " : "│      "), true);
     
+            // Imprimir el prefijo y el nodo actual
+            System.out.println(prefix + (esHijoDerecho ? "┌───" : "└───") + "(" + nodo.getElement() + ")");
+    
+            // Llamada recursiva al subárbol izquierdo
+            imprimirArbolConRamas(nodo.getLeft(), prefix + (esHijoDerecho ? "│      " : "       "), false);
+        }
+    }
+    //Imprimir sin ramas
+    /*public void imprimirArbol(Node<T> rama, int nivel) {
+        if (rama == null) {
+            return; // Si el nodo es nulo, salimos de la función
+        }
+    
+        // Aumentamos el nivel de indentación por cada nivel de profundidad en el árbol
+        imprimirArbol(rama.getRight(), nivel + 1);
+    
+        // Imprimir espacios para crear el efecto visual de árbol
+        for (int i = 0; i < nivel; i++) {
+            System.out.print("     "); // 5 espacios por nivel (puedes ajustar)
+        }
+    
+        // Imprimimos el valor del nodo
+        System.out.println("("+rama.getElement()+")");
+    
+        // Recorremos el subárbol izquierdo
+        imprimirArbol(rama.getLeft(), nivel + 1);
+    }*/
 }
