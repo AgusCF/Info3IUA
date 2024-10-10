@@ -13,16 +13,18 @@ public class Main {
         Funcion fun= new Funcion();
 
         int select = 0;
-        int selectop=0;
+        int selectop;
         do {
+            selectop=0;
             System.out.println();
             System.out.println("""
                         ##### Menu #####
                     1. Insertar elementos
                     2. Mostrar en orden
                     3. Cargcar valores por defecto 1
-                    4. Cargcar valores por defecto 1
-                    5. salir del programa""");
+                    4. Cargcar valores por defecto 2
+                    5. Eliminar un numero
+                    6. Salir del programa""");
             System.out.print("\nOpcion: ");
             select = entrda.nextInt();
             
@@ -32,7 +34,7 @@ public class Main {
                 System.out.println("Si desea continuar ingrese 1");
                 selectop = entrda.nextInt();
                 if (selectop!=1) {
-                    select =5;
+                    select =-999;
                 }
             }
             //--------------------------------------------------------------
@@ -53,8 +55,14 @@ public class Main {
                     root =null;
                     root =fun.precargaAVL2(arbolAVL,root);
                     break;
-                case 5:
+                case -999:
                     System.out.println("Operacion cancelada con exito");
+                    break;
+                case 5:
+                    System.out.println("Ingrese valor a eliminar:");
+                    System.out.print("Valor= ");
+                    selectop = entrda.nextInt();
+                    root=arbolAVL.delete(root,selectop);
                     break;
                 default:
                     break;

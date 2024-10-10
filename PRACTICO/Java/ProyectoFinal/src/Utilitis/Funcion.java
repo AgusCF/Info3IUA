@@ -39,6 +39,7 @@ public class Funcion {
     public Node<Integer> cargarAMano(ArbolAVL<Integer> arbolAVL,Node<Integer> raiz){
         int dato = 0;
         int op=0;
+        @SuppressWarnings("resource")
         Scanner entrda = new Scanner(System.in);
         while(op!=-1){
             System.out.print("\nIngrea el dato a gurdar: ");
