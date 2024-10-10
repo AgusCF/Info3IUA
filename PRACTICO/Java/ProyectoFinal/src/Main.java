@@ -31,8 +31,8 @@ public class Main {
                     arbolAVL.imprimirArbolConRamas(root, "", false);
                     break;
                 case 3:
-                    //fun.precargaAVL1();
-                    //fun.precargaAVL2();
+                    root =fun.precargaAVL1(arbolAVL,root);
+                    root =fun.precargaAVL2(arbolAVL,root);
                     
                     break;
                 default:
