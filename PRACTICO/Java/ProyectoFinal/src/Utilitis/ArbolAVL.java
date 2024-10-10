@@ -123,6 +123,7 @@ public class ArbolAVL<T extends Comparable<T>> {
             imprimirArbolConRamas(nodo.getLeft(), prefix + (esHijoDerecho ? "│      " : "       "), false);
         }
     }
+    
     //Imprimir sin ramas
     /*public void imprimirArbol(Node<T> rama, int nivel) {
         if (rama == null) {
