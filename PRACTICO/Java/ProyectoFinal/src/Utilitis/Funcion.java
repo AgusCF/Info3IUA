@@ -40,16 +40,16 @@ public class Funcion {
         int dato = 0;
         int op=0;
         Scanner entrda = new Scanner(System.in);
-        while(op!=1){
+        while(op!=-1){
             System.out.print("\nIngrea el dato a gurdar: ");
             dato = entrda.nextInt();
             raiz = arbolAVL.insert(raiz, dato);
-            System.out.println("Desea finalizar la carga? ingrese 1");
+            System.out.println("Árbol AVL con ramas:");//Imprime con ramitas "┌───" y "└───"
+            arbolAVL.imprimirArbolConRamas(raiz, "", false);
+            System.out.println("Desea finalizar la carga? ingrese -1");
             System.out.print("Opcion= ");
             op= entrda.nextInt();
         }
-        System.out.println("Árbol AVL con ramas:");//Imprime con ramitas "┌───" y "└───"
-        arbolAVL.imprimirArbolConRamas(raiz, "", false);
         return raiz;
     }
 }
