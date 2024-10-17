@@ -32,13 +32,13 @@ public class MainAgus {
                     monticulo.insert(num);
                     break;
                 case 7:
-                    System.out.println("Cargando el monticulode manera automatico y aleatoria");
+                    System.out.println("Cargando el monticulo de manera automatico y aleatoria");
                     for(int i=0;i<tam;i++){
                         num = random.nextInt(100);
                         monticulo.insert(num);
-                    }
-                    if(monticulo.isfull()==true){
-                        break;
+                        if(monticulo.isfull()==true){
+                            break;
+                        }
                     }
                     break;
                 case 3:
