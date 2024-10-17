@@ -1,8 +1,10 @@
 import Utilitis.MonticuloBin;
 import java.util.Scanner;
+import java.util.Random;
 public class MainAgus {
     public static void main(String[] args) {
         Scanner entrda = new Scanner(System.in);
+        Random random = new Random();
         int op=0;
         int num,tam;
         System.out.println("Ingrese la capacidad del Monticulo");
@@ -18,21 +20,29 @@ public class MainAgus {
                     3. Imprimir monticulo como arbol
                     4. Imprimir monticulo como arreglo
                     5. Eliminar un minimo del monticulo
-                    6.Ver el minimo
+                    6. Ver el minimo
                     7. Salir del programa""");
             System.out.print("\nOpcion: ");
             op = entrda.nextInt();
             switch (op) {
                 case 1:
                     for(int i=0;i<tam;i++){
-                        System.out.print("Ingrese valor "+i+" de "+ tam);
+                        System.out.print("Ingrese valor "+i+1+" de "+ tam+" ");
                         num = entrda.nextInt();
                         monticulo.insert(num);
+                        if(monticulo.isfull()==true){
+                            break;
+                        }
                     }
                     break;
                 case 2:
+                    System.out.println("Cargando el monticulo  con numeros random");
                     for(int i=0;i<tam;i++){
+                        num = random.nextInt(100);
                         monticulo.insert(num);
+                    }
+                    if(monticulo.isfull()==true){
+                        break;
                     }
                     break;
                 case 3:
@@ -50,11 +60,13 @@ public class MainAgus {
                 case 6:
                     System.out.println("Minimo del monticulo: "+monticulo.peek());
                     break;
+                case 7:
+                    break;
                 default:
                     System.out.println("La opcion ingresada no existe, porfavor intente de nuevo");
                     break;
             }
         } while (op!=7);
-        
+        entrda.close();
     }
 }

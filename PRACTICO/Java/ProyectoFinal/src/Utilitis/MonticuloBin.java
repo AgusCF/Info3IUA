@@ -66,13 +66,15 @@ public class MonticuloBin<T extends Comparable<T>> {
     public void insert(T element) {
         // Verificar si el montículo está lleno
         if (size == capacity) {
-            throw new IllegalStateException("Montículo lleno");
+            // Manejar el caso donde el montículo está lleno dentro del método
+            System.out.println("No se pudo insertar, el montículo está lleno.");
+            return; // Salir del método sin insertar
         }
-
+    
         // Insertar el nuevo elemento al final del arreglo
         heap[size] = element;
         size++;
-
+    
         // Restablecer la propiedad del montículo (percolación hacia arriba)
         heapifyUp(size - 1);
     }
@@ -134,5 +136,11 @@ public class MonticuloBin<T extends Comparable<T>> {
             // Llamada recursiva para el hijo izquierdo
             imprimirMonticuloConRamas(leftChild(index), prefix + (esHijoDerecho ? "│      " : "       "), false);
         }
+    }
+    public boolean isfull(){
+        if (size == capacity) {
+            return true;
+        }
+        return false;
     }
 }
