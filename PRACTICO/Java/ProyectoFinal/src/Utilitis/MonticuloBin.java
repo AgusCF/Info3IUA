@@ -123,26 +123,6 @@ public class MonticuloBin<T extends Comparable<T>> {
         System.out.println("]");
     }
 
-    // Método para imprimir el montículo en forma de árbol
-    public void imprimirComoArbol() {
-        System.out.println("Montículo en forma de árbol:");
-        imprimirRamas(0, 0);
-    }
-
-    // Método recursivo para imprimir cada nodo del montículo con su nivel de profundidad
-    private void imprimirRamas(int index, int profundidad) {
-        if (index < size) {
-            imprimirRamas(rightChild(index), profundidad + 1);
-
-            for (int i = 0; i < profundidad; i++) {
-                System.out.print("       ");
-            }
-
-            System.out.println(heap[index]);
-
-            imprimirRamas(leftChild(index), profundidad + 1);
-        }
-    }
     public void imprimirMonticuloConRamas(int index, String prefix, boolean esHijoDerecho) {
         if (index < size) {
             // Llamada recursiva para el hijo derecho
