@@ -21,8 +21,8 @@ public class Main {
                         ##### Menu #####
                     1. Insertar elementos
                     2. Mostrar en orden
-                    3. Cargcar valores por defecto 1
-                    4. Cargcar valores por defecto 2
+                    3. Cargar valores por defecto 1
+                    4. Cargar valores por defecto 2
                     5. Eliminar un numero
                     6. Salir del programa""");
             System.out.print("\nOpcion: ");
@@ -55,14 +55,14 @@ public class Main {
                     root =null;
                     root =fun.precargaAVL2(arbolAVL,root);
                     break;
-                case -999:
-                    System.out.println("Operacion cancelada con exito");
-                    break;
                 case 5:
                     System.out.println("Ingrese valor a eliminar:");
                     System.out.print("Valor= ");
                     selectop = entrda.nextInt();
                     root=arbolAVL.delete(root,selectop);
+                    break;
+                case -999:
+                    System.out.println("Operacion cancelada con exito");
                     break;
                 default:
                     break;
