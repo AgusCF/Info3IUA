@@ -143,4 +143,16 @@ public class MonticuloBin<T extends Comparable<T>> {
             imprimirRamas(leftChild(index), profundidad + 1);
         }
     }
+    public void imprimirMonticuloConRamas(int index, String prefix, boolean esHijoDerecho) {
+        if (index < size) {
+            // Llamada recursiva para el hijo derecho
+            imprimirMonticuloConRamas(rightChild(index), prefix + (esHijoDerecho ? "       " : "│      "), true);
+            
+            // Imprimir el prefijo y el nodo actual
+            System.out.println(prefix + (esHijoDerecho ? "┌───" : "└───") + "(" + heap[index] + ")");
+            
+            // Llamada recursiva para el hijo izquierdo
+            imprimirMonticuloConRamas(leftChild(index), prefix + (esHijoDerecho ? "│      " : "       "), false);
+        }
+    }
 }
