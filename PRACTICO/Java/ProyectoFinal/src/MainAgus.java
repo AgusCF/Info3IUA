@@ -16,27 +16,23 @@ public class MainAgus {
             System.out.println("""
                     ##### Menu #####
                     1. Cargar monticulo a mano
-                    2. Cargar monticulo automatico
+                    2. Cargar monticulo con un numero random
                     3. Imprimir monticulo como arbol
                     4. Imprimir monticulo como arreglo
                     5. Eliminar un minimo del monticulo
                     6. Ver el minimo
-                    7. Salir del programa""");
+                    7. Cargar todo el monticulo de manera automatico y aleatoria
+                    8. Salir del programa""");
             System.out.print("\nOpcion: ");
             op = entrda.nextInt();
             switch (op) {
                 case 1:
-                    for(int i=0;i<tam;i++){
-                        System.out.print("Ingrese valor "+i+1+" de "+ tam+" ");
-                        num = entrda.nextInt();
-                        monticulo.insert(num);
-                        if(monticulo.isfull()==true){
-                            break;
-                        }
-                    }
+                    System.out.print("Ingrese valor ");
+                    num = entrda.nextInt();
+                    monticulo.insert(num);
                     break;
-                case 2:
-                    System.out.println("Cargando el monticulo  con numeros random");
+                case 7:
+                    System.out.println("Cargando el monticulode manera automatico y aleatoria");
                     for(int i=0;i<tam;i++){
                         num = random.nextInt(100);
                         monticulo.insert(num);
@@ -60,13 +56,18 @@ public class MainAgus {
                 case 6:
                     System.out.println("Minimo del monticulo: "+monticulo.peek());
                     break;
-                case 7:
+                case 2:
+                    num = random.nextInt(100);
+                    monticulo.insert(num);
+                    break;
+                case 8:
+                    
                     break;
                 default:
                     System.out.println("La opcion ingresada no existe, porfavor intente de nuevo");
                     break;
             }
-        } while (op!=7);
+        } while (op!=8);
         entrda.close();
     }
 }
