@@ -1,6 +1,7 @@
-import Utilitis.ArbolAVL;
-import Utilitis.Node;
-import Utilitis.Funcion;
+import Utilitis.AVL.ArbolAVL;
+import Utilitis.AVL.Funcion;
+import Utilitis.AVL.Node;
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,12 +11,12 @@ public class Main {
         @SuppressWarnings("rawtypes")
         ArbolAVL arbolAVL = new ArbolAVL();
         Scanner entrda = new Scanner(System.in);
-        Funcion fun= new Funcion();
+        Funcion fun = new Funcion();
 
         int select = 0;
         int selectop;
         do {
-            selectop=0;
+            selectop = 0;
             System.out.println();
             System.out.println("""
                         ##### Menu #####
@@ -27,33 +28,33 @@ public class Main {
                     6. Salir del programa""");
             System.out.print("\nOpcion: ");
             select = entrda.nextInt();
-            
-            //Algo extra---------------------------------------------------
-            if(select==3 || select==4){
+
+            // Algo extra---------------------------------------------------
+            if (select == 3 || select == 4) {
                 System.out.println("Esta opcion reinciciara el arbol.");
                 System.out.println("Si desea continuar ingrese 1");
                 selectop = entrda.nextInt();
-                if (selectop!=1) {
-                    select =-999;
+                if (selectop != 1) {
+                    select = -999;
                 }
             }
-            //--------------------------------------------------------------
-            
+            // --------------------------------------------------------------
+
             switch (select) {
                 case 1:
-                    root = fun.cargarAMano(arbolAVL,root);
+                    root = fun.cargarAMano(arbolAVL, root);
                     break;
                 case 2:
-                    System.out.println("Árbol AVL con ramas:");//Imprime con ramitas "┌───" y "└───"
+                    System.out.println("Árbol AVL con ramas:");// Imprime con ramitas "┌───" y "└───"
                     arbolAVL.imprimirArbolConRamas(root, "", false);
                     break;
                 case 3:
-                    root =null;
-                    root =fun.precargaAVL1(arbolAVL,root);
+                    root = null;
+                    root = fun.precargaAVL1(arbolAVL, root);
                     break;
                 case 4:
-                    root =null;
-                    root =fun.precargaAVL2(arbolAVL,root);
+                    root = null;
+                    root = fun.precargaAVL2(arbolAVL, root);
                     break;
                 case -999:
                     System.out.println("Operacion cancelada con exito");
@@ -62,7 +63,7 @@ public class Main {
                     System.out.println("Ingrese valor a eliminar:");
                     System.out.print("Valor= ");
                     selectop = entrda.nextInt();
-                    root=arbolAVL.delete(root,selectop);
+                    root = arbolAVL.delete(root, selectop);
                     break;
                 default:
                     break;

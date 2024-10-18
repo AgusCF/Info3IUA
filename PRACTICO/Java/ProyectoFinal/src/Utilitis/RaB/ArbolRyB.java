@@ -1,4 +1,6 @@
-package Utilitis;
+package Utilitis.RaB;
+
+import Utilitis.AVL.Node;
 
 public class ArbolRyB<T extends Comparable<T>> {
     private NodeRyB<T> root;
@@ -32,7 +34,8 @@ public class ArbolRyB<T extends Comparable<T>> {
     }
 
     private boolean isRed(NodeRyB<T> node) {
-        if (node == null) return false;
+        if (node == null)
+            return false;
         return node.getcolor(); // true = rojo
     }
 
@@ -67,18 +70,22 @@ public class ArbolRyB<T extends Comparable<T>> {
         }
     }
 
-    public void imprimirArbolConRamas(Node<T> nodo, String prefix, boolean esHijoDerecho) {
-        
-        //poner los colores
-    
+    public void imprimirArbolConRamas(NodeRyB<T> nodo, String prefix, boolean esHijoDerecho) {
         if (nodo != null) {
             // Llamada recursiva al subárbol derecho
             imprimirArbolConRamas(nodo.getRight(), prefix + (esHijoDerecho ? "       " : "│      "), true);
-    
-            // Imprimir el prefijo y el nodo actual
-            System.out.println(prefix + (esHijoDerecho ? "┌───" : "└───") + "(" + nodo.getElement() + ")");
-    
+
+            // Imprimir el nodo actual con su color
+            if (nodo.getcolor() == true) {
+                System.out.println(prefix + (esHijoDerecho ? "┌───" : "└───") + "\033[31m(\033[0m" + nodo.getElement()
+                        + "\033[31m)\033[0m");
+            } else {
+                System.out.println(prefix + (esHijoDerecho ? "┌───" : "└───") + "(" + nodo.getElement() + ")");
+            }
+
             // Llamada recursiva al subárbol izquierdo
             imprimirArbolConRamas(nodo.getLeft(), prefix + (esHijoDerecho ? "│      " : "       "), false);
-        }}
+        }
+    }
+
 }

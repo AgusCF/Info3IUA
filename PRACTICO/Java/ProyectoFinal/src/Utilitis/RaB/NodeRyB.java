@@ -1,11 +1,11 @@
-package Utilitis;
+package Utilitis.RaB;
 
 public class NodeRyB<T> {
     // Campos del nodo
     private T element;
-    private boolean color;//true = Rojo y false = negro =)
-    private int canBlack;//Cantidad de nodos negros Izquierdo 
-    //private int canBlackright;//Cantidad de nodos negros derecho
+    private boolean color;// true = Rojo y false = negro =)
+    private int canBlack;// Cantidad de nodos negros Izquierdo
+    // private int canBlackright;//Cantidad de nodos negros derecho
     private NodeRyB<T> left;
     private NodeRyB<T> right;
 
@@ -52,16 +52,19 @@ public class NodeRyB<T> {
         color = false;
     }
 
-    public int getcanBlack(){
+    public int getcanBlack() {
         return canBlack;
     }
-    public void setcanBlackMas(){
+
+    public void setcanBlackMas() {
         canBlack++;
     }
-    public void setcanBlackMenos(){
+
+    public void setcanBlackMenos() {
         canBlack--;
     }
-    public void setcanBlack(int can){
+
+    public void setcanBlack(int can) {
         canBlack = can;
     }
 
@@ -81,4 +84,3 @@ public class NodeRyB<T> {
         this.right = right;
     }
 }
-

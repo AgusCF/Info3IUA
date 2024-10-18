@@ -1,4 +1,4 @@
-package Utilitis;
+package Utilitis.AVL;
 
 public class ArbolAVL<T extends Comparable<T>> {
 
@@ -100,7 +100,7 @@ public class ArbolAVL<T extends Comparable<T>> {
         if (rama == null) {
             return rama;
         }
-    
+
         // Buscamos el nodo a eliminar
         if (element.compareTo(rama.getElement()) < 0) {
             rama.setLeft(delete(rama.getLeft(), element));
@@ -116,7 +116,7 @@ public class ArbolAVL<T extends Comparable<T>> {
                 } else {
                     temp = rama.getRight();
                 }
-    
+
                 // No tiene hijos
                 if (temp == null) {
                     rama = null;
@@ -125,28 +125,29 @@ public class ArbolAVL<T extends Comparable<T>> {
                     rama = temp;
                 }
             } else {
-                // Caso 2: Nodo con dos hijos, obtener el sucesor en inorden (el menor de los mayores)
+                // Caso 2: Nodo con dos hijos, obtener el sucesor en inorden (el menor de los
+                // mayores)
                 Node<T> temp = minValueNode(rama.getRight());
-    
+
                 // Reemplazar el valor del nodo con el sucesor en inorden
                 rama.setElement(temp.getElement());
-    
+
                 // Eliminar el sucesor en inorden
                 rama.setRight(delete(rama.getRight(), temp.getElement()));
             }
         }
-    
+
         // Si solo había un nodo y se eliminó, regresamos null
         if (rama == null) {
             return rama;
         }
-    
+
         // Actualizamos la altura
         rama.setAltura(1 + Math.max(altura(rama.getLeft()), altura(rama.getRight())));
-    
+
         // Calculamos el factor de balanceo
         int factorBalanceo = calcularFactorBalanceo(rama);
-    
+
         // Verificamos si el árbol está desbalanceado
         if (factorBalanceo < -1) {
             // Desbalanceado a la izquierda
@@ -157,7 +158,7 @@ public class ArbolAVL<T extends Comparable<T>> {
                 return rotarDerecha(rama);
             }
         }
-    
+
         if (factorBalanceo > 1) {
             // Desbalanceado a la derecha
             if (calcularFactorBalanceo(rama.getRight()) >= 0) {
@@ -167,71 +168,79 @@ public class ArbolAVL<T extends Comparable<T>> {
                 return rotarIzquierda(rama);
             }
         }
-    
+
         return rama;
     }
-    
+
     // Método para encontrar el nodo con el valor mínimo (el sucesor en inorden)
     private Node<T> minValueNode(Node<T> node) {
         Node<T> current = node;
-        
+
         // El nodo más a la izquierda tendrá el valor mínimo
         while (current.getLeft() != null) {
             current = current.getLeft();
         }
-        
+
         return current;
     }
 
-    //Imprimir con ramas:
+    // Imprimir con ramas:
     public void imprimirArbolConRamas(Node<T> nodo, String prefix, boolean esHijoDerecho) {
         if (nodo != null) {
             // Llamada recursiva al subárbol derecho
             imprimirArbolConRamas(nodo.getRight(), prefix + (esHijoDerecho ? "       " : "│      "), true);
-    
+
             // Imprimir el prefijo y el nodo actual
             System.out.println(prefix + (esHijoDerecho ? "┌───" : "└───") + "(" + nodo.getElement() + ")");
-    
+
             // Llamada recursiva al subárbol izquierdo
             imprimirArbolConRamas(nodo.getLeft(), prefix + (esHijoDerecho ? "│      " : "       "), false);
         }
     }
-    //No se usan pero estan por orgullo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // No se usan pero estan por orgullo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    //Imprimir sin ramas
-    /*public void imprimirArbol(Node<T> rama, int nivel) {
-        if (rama == null) {
-            return; // Si el nodo es nulo, salimos de la función
-        }
-    
-        // Aumentamos el nivel de indentación por cada nivel de profundidad en el árbol
-        imprimirArbol(rama.getRight(), nivel + 1);
-    
-        // Imprimir espacios para crear el efecto visual de árbol
-        for (int i = 0; i < nivel; i++) {
-            System.out.print("     "); // 5 espacios por nivel (puedes ajustar)
-        }
-    
-        // Imprimimos el valor del nodo
-        System.out.println("("+rama.getElement()+")");
-    
-        // Recorremos el subárbol izquierdo
-        imprimirArbol(rama.getLeft(), nivel + 1);
-    }*/
+    // Imprimir sin ramas
+    /*
+     * public void imprimirArbol(Node<T> rama, int nivel) {
+     * if (rama == null) {
+     * return; // Si el nodo es nulo, salimos de la función
+     * }
+     * 
+     * // Aumentamos el nivel de indentación por cada nivel de profundidad en el
+     * árbol
+     * imprimirArbol(rama.getRight(), nivel + 1);
+     * 
+     * // Imprimir espacios para crear el efecto visual de árbol
+     * for (int i = 0; i < nivel; i++) {
+     * System.out.print("     "); // 5 espacios por nivel (puedes ajustar)
+     * }
+     * 
+     * // Imprimimos el valor del nodo
+     * System.out.println("("+rama.getElement()+")");
+     * 
+     * // Recorremos el subárbol izquierdo
+     * imprimirArbol(rama.getLeft(), nivel + 1);
+     * }
+     */
 
     // Métodos para mostrar el árbol en preorden, enorden y postorden
-    /*private void printInOrder(Node<T> rama) {
-        if (rama == null) {
-            return; // Si el nodo es nulo, salimos de la función
-        }
-    
-        printInOrder(rama.getLeft()); // Recorremos el subárbol izquierdo
-        System.out.print(" " + rama.getElement()); // Imprimimos el valor del nodo actual
-        printInOrder(rama.getRight()); // Recorremos el subárbol derecho
-    }*/
-    
-    /*public void recorrerEnOrden(Node<T> rama) {
-        printInOrder(rama); // Llama al método privado
-        System.out.println(); // Nueva línea al final
-    }*/
+    /*
+     * private void printInOrder(Node<T> rama) {
+     * if (rama == null) {
+     * return; // Si el nodo es nulo, salimos de la función
+     * }
+     * 
+     * printInOrder(rama.getLeft()); // Recorremos el subárbol izquierdo
+     * System.out.print(" " + rama.getElement()); // Imprimimos el valor del nodo
+     * actual
+     * printInOrder(rama.getRight()); // Recorremos el subárbol derecho
+     * }
+     */
+
+    /*
+     * public void recorrerEnOrden(Node<T> rama) {
+     * printInOrder(rama); // Llama al método privado
+     * System.out.println(); // Nueva línea al final
+     * }
+     */
 }
