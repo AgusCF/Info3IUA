@@ -1,12 +1,11 @@
 import java.util.Scanner;
-
 import Utilitis.RaB.ArbolRyB;
 import Utilitis.RaB.NodeRyB;
 
 public class mainRaB {
     public static void main(String[] args) {
-        ArbolRyB arbol = new ArbolRyB<>();
-        NodeRyB root = new NodeRyB<>();
+        ArbolRyB<Integer> arbol = new ArbolRyB<>(); // Crear el árbol
+        NodeRyB<Integer> root = null; // Inicializamos la raíz como null
         Scanner entrda = new Scanner(System.in);
 
         int select = 0;
@@ -23,15 +22,12 @@ public class mainRaB {
             System.out.print("\nOpcion: ");
             select = entrda.nextInt();
 
-            // Algo extra---------------------------------------------------
-
-            // --------------------------------------------------------------
-
             switch (select) {
                 case 1:
                     System.out.print("\nIngresa el numero: ");
                     int data = entrda.nextInt();
-                    arbol.insert(root, data);
+                    // Actualizar la raíz del árbol al insertar un nuevo número
+                    root = arbol.insert(root, data);
                     break;
                 case 2:
                     if (root != null) {
@@ -41,16 +37,13 @@ public class mainRaB {
                     }
                     break;
                 case 3:
-
+                    // Lógica para cargar valores por defecto 1
                     break;
                 case 4:
-
-                    break;
-                case -999:
-
+                    // Lógica para cargar valores por defecto 2
                     break;
                 case 5:
-
+                    // Lógica para eliminar un número
                     break;
                 default:
                     break;

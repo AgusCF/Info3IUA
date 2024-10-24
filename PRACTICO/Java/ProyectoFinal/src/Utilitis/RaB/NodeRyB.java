@@ -1,71 +1,37 @@
 package Utilitis.RaB;
 
 public class NodeRyB<T> {
-    // Campos del nodo
     private T element;
-    private boolean color;// true = Rojo y false = negro =)
-    private int canBlack;// Cantidad de nodos negros Izquierdo
-    // private int canBlackright;//Cantidad de nodos negros derecho
+    private boolean color; // RED o BLACK
     private NodeRyB<T> left;
     private NodeRyB<T> right;
 
-    /**
-     * Constructor por defecto que inicializa un nodo vacío.
-     */
-    public NodeRyB() {
-    }
-
-    /**
-     * Constructor para crear un nodo terminal con un elemento específico.
-     */
-    public NodeRyB(T element) {
+    public NodeRyB(T element, boolean color) {
         this.element = element;
-        color = true;
-        canBlack = 0;
-        left = null;
-        right = null;
+        this.color = color;
+        this.left = null; // Inicializa el hijo izquierdo como nulo
+        this.right = null; // Inicializa el hijo derecho como nulo
     }
 
-    public NodeRyB(T element, NodeRyB<T> left, NodeRyB<T> right) {
-        this.element = element;
-        this.left = left;
-        this.right = right;
-    }
-
+    // Métodos de acceso y mutadores
     public T getElement() {
         return element;
     }
 
-    public void setElement(T element) {
-        this.element = element;
-    }
-
-    public boolean getcolor() {
-        return color;
+    public boolean getColor() {
+        return color; // Método para obtener el color
     }
 
     public void setColorRed() {
-        color = true;
+        this.color = true; // Asigna el color rojo
     }
 
     public void setColorBlack() {
-        color = false;
+        this.color = false; // Asigna el color negro
     }
 
-    public int getcanBlack() {
-        return canBlack;
-    }
-
-    public void setcanBlackMas() {
-        canBlack++;
-    }
-
-    public void setcanBlackMenos() {
-        canBlack--;
-    }
-
-    public void setcanBlack(int can) {
-        canBlack = can;
+    public void setColor(boolean color) {
+        this.color = color;
     }
 
     public NodeRyB<T> getLeft() {
