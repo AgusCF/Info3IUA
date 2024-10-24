@@ -4,7 +4,6 @@ public class ArbolRyB<T extends Comparable<T>> {
     private NodeRyB<T> root;
     private static final boolean RED = true;
     private static final boolean BLACK = false;
-    private int con = 0;
 
     public NodeRyB<T> insert(NodeRyB<T> rama, T element) {
         if (element == null) {
@@ -36,7 +35,14 @@ public class ArbolRyB<T extends Comparable<T>> {
             flipColors(rama); // Cambia colores si ambos hijos son rojos
         }
 
+        // Asegurarse de que la raíz sea siempre negra
+        rama.setColor(BLACK);
         return rama;
+    }
+
+    public void insertar(T element) {
+        root = insert(root, element);
+        root.setColor(BLACK); // Asegúrate de que la raíz siempre sea negra
     }
 
     private boolean isRed(NodeRyB<T> node) {
@@ -64,9 +70,7 @@ public class ArbolRyB<T extends Comparable<T>> {
     }
 
     private void flipColors(NodeRyB<T> node) {
-        if (con != 0) {
-            node.setColorRed(); // El nodo padre se vuelve rojo
-        }
+        node.setColorRed(); // El nodo padre se vuelve rojo
         if (node.getLeft() != null)
             node.getLeft().setColorBlack(); // Los hijos se vuelven negros
         if (node.getRight() != null)
