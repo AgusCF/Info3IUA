@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MainRecursiva",
+      "request": "launch",
+      "mainClass": "MainRecursiva",
+      "projectName": "ProyectoFinal_da8596a5"
+    },
+    {
+      "type": "java",
       "name": "MainRaB",
       "request": "launch",
       "mainClass": "MainRaB",

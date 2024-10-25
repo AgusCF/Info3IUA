@@ -1,4 +1,5 @@
 package Utilitis;
+
 public class MonticuloBin<T extends Comparable<T>> {
     private T[] heap;
     private int size;
@@ -34,7 +35,8 @@ public class MonticuloBin<T extends Comparable<T>> {
         heap[index2] = temp;
     }
 
-    // Método para restablecer la propiedad del montículo moviendo un elemento hacia arriba
+    // Método para restablecer la propiedad del montículo moviendo un elemento hacia
+    // arriba
     private void heapifyUp(int index) {
         while (index > 0 && heap[parent(index)].compareTo(heap[index]) > 0) {
             swap(parent(index), index);
@@ -42,7 +44,8 @@ public class MonticuloBin<T extends Comparable<T>> {
         }
     }
 
-    // Método para restablecer la propiedad del montículo moviendo un elemento hacia abajo
+    // Método para restablecer la propiedad del montículo moviendo un elemento hacia
+    // abajo
     private void heapifyDown(int index) {
         int smallest = index;
         int left = leftChild(index);
@@ -66,15 +69,14 @@ public class MonticuloBin<T extends Comparable<T>> {
     public void insert(T element) {
         // Verificar si el montículo está lleno
         if (size == capacity) {
-            // Manejar el caso donde el montículo está lleno dentro del método
             System.out.println("No se pudo insertar, el montículo está lleno.");
             return; // Salir del método sin insertar
         }
-    
+
         // Insertar el nuevo elemento al final del arreglo
         heap[size] = element;
         size++;
-    
+
         // Restablecer la propiedad del montículo (percolación hacia arriba)
         heapifyUp(size - 1);
     }
@@ -113,6 +115,11 @@ public class MonticuloBin<T extends Comparable<T>> {
         return size == 0;
     }
 
+    // Método para verificar si el montículo está lleno
+    public boolean isFull() {
+        return size == capacity;
+    }
+
     // Método para imprimir el montículo como un arreglo
     public void imprimirComoArreglo() {
         System.out.print("Montículo como arreglo: [");
@@ -129,18 +136,12 @@ public class MonticuloBin<T extends Comparable<T>> {
         if (index < size) {
             // Llamada recursiva para el hijo derecho
             imprimirMonticuloConRamas(rightChild(index), prefix + (esHijoDerecho ? "       " : "│      "), true);
-            
+
             // Imprimir el prefijo y el nodo actual
             System.out.println(prefix + (esHijoDerecho ? "┌───" : "└───") + "(" + heap[index] + ")");
-            
+
             // Llamada recursiva para el hijo izquierdo
             imprimirMonticuloConRamas(leftChild(index), prefix + (esHijoDerecho ? "│      " : "       "), false);
         }
-    }
-    public boolean isfull(){
-        if (size == capacity) {
-            return true;
-        }
-        return false;
     }
 }
