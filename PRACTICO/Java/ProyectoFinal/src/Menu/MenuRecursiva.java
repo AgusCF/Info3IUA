@@ -1,11 +1,14 @@
+package Menu;
+
 import java.util.Scanner;
 import Utilitis.Recursiva;
 
-public class MainRecursiva {
-    public static void main(String[] args) {
+public class MenuRecursiva {
+
+    public void mostrarMenu() {
         Recursiva recursiva = new Recursiva();
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        int opcion = -1; // Inicializa con un valor por defecto
 
         do {
             System.out.println("""
@@ -20,7 +23,14 @@ public class MainRecursiva {
                     0. Salir
                     """);
             System.out.print("Selecciona una opción: ");
-            opcion = scanner.nextInt();
+
+            try {
+                opcion = scanner.nextInt();
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Por favor, ingresa un número válido.");
+                scanner.next(); // Limpia la entrada no válida
+                continue; // Regresa al inicio del ciclo para solicitar la opción nuevamente
+            }
 
             switch (opcion) {
                 case 1:
@@ -91,6 +101,6 @@ public class MainRecursiva {
             System.out.println(); // Para un espacio entre las opciones
         } while (opcion != 0);
 
-        scanner.close();
+        // No cerramos el scanner aquí
     }
 }
