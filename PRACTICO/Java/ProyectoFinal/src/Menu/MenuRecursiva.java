@@ -1,7 +1,8 @@
 package Menu;
 
 import java.util.Scanner;
-import Utilitis.Recursiva;
+
+import Utilitis.Recursivas.Recursiva;
 
 public class MenuRecursiva {
 
