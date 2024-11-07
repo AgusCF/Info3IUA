@@ -29,6 +29,14 @@ public class FuncionesOrdenamiento {
         }
         return array;
     }
+    public static String[] generateRandomStringArray(int length) {
+        String[] array = new String[length];
+        Random rand = new Random();
+        for (int i = 0; i < length; i++) {
+            array[i] = "Str" + rand.nextInt(100); // Genera una cadena con prefijo "Str" y un número aleatorio
+        }
+        return array;
+    }
 
     // Método para medir el tiempo de ejecución de un algoritmo de ordenamiento
     public static <T extends Comparable<T>> void measureSortingTime(T[] array, SortAlgorithm<T> algorithm) {

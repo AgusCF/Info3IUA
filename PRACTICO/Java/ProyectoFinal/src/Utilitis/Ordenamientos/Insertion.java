@@ -1,5 +1,5 @@
 package Utilitis.Ordenamientos;
-public class Insertion<T extends Comparable<T>> {
+public class Insertion<T extends Comparable<T>> implements SortAlgorithm<T>{
     public void sort(T[] array) {
         for (int i = 1; i < array.length; i++) {
             T key = array[i];

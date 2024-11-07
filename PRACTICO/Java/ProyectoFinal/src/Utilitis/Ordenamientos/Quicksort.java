@@ -1,5 +1,5 @@
 package Utilitis.Ordenamientos;
-public class Quicksort<T extends Comparable<T>> {
+public class Quicksort<T extends Comparable<T>> implements SortAlgorithm<T>{
     public void sort(T[] array) {
         quicksort(array, 0, array.length - 1);
     }

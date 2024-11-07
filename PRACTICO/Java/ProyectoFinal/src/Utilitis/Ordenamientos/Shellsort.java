@@ -1,5 +1,5 @@
 package Utilitis.Ordenamientos;
-public class Shellsort<T extends Comparable<T>> {
+public class Shellsort<T extends Comparable<T>> implements SortAlgorithm<T>{
     public void sort(T[] array) {
         int n = array.length;
         for (int gap = n / 2; gap > 0; gap /= 2) {
