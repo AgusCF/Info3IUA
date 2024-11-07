@@ -23,11 +23,20 @@ public class MenuOrdenamiento {
         Quicksort<Integer> quickSortInt = new Quicksort<>();
         Quicksort<Double> quickSortDouble = new Quicksort<>();
         Quicksort<String> quickSortString = new Quicksort<>();
+        
+        //Cargar arrays aleatorios:
+        System.out.println("Cargar arrays de manera random");
+        System.out.print("Ingrese la longitud del array: ");
+        int length = scanner.nextInt();
+        intArray = FuncionesOrdenamiento.generateRandomIntArray(length);
+        doubleArray = FuncionesOrdenamiento.generateRandomDoubleArray(length);
+        stringArray = FuncionesOrdenamiento.generateRandomStringArray(length); // Método para generar cadenas aleatorias
+        System.out.println("Arrays generados con longitud " + length);
 
         do {
             System.out.println("""
                     ##### Menú de Ordenamiento #####
-                    1.  Cargar array de manera alatoria
+                    1.  Randomizar array nuevamente
                     ----
                     2.  Incercion Enteros
                     3.  Incercion Double
@@ -58,8 +67,6 @@ public class MenuOrdenamiento {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese la longitud del array: ");
-                    int length = scanner.nextInt();
                     intArray = FuncionesOrdenamiento.generateRandomIntArray(length);
                     doubleArray = FuncionesOrdenamiento.generateRandomDoubleArray(length);
                     stringArray = FuncionesOrdenamiento.generateRandomStringArray(length); // Método para generar cadenas aleatorias
