@@ -32,7 +32,6 @@ public class MenuOrdenamiento {
         doubleArray = FuncionesOrdenamiento.generateRandomDoubleArray(length);
         stringArray = FuncionesOrdenamiento.generateRandomStringArray(length); // Método para generar cadenas aleatorias
         System.out.println("Arrays generados con longitud " + length);
-
         do {
             System.out.println("""
                     ##### Menú de Ordenamiento #####
@@ -67,10 +66,9 @@ public class MenuOrdenamiento {
 
             switch (opcion) {
                 case 1:
-                    intArray = FuncionesOrdenamiento.generateRandomIntArray(length);
-                    doubleArray = FuncionesOrdenamiento.generateRandomDoubleArray(length);
-                    stringArray = FuncionesOrdenamiento.generateRandomStringArray(length); // Método para generar cadenas aleatorias
-                    System.out.println("Arrays generados con longitud " + length);
+                    intArray = FuncionesOrdenamiento.generateRandomIntArray(intArray.length);
+                    doubleArray = FuncionesOrdenamiento.generateRandomDoubleArray(doubleArray.length);
+                    stringArray = FuncionesOrdenamiento.generateRandomStringArray(stringArray.length);
                     break;
                 case 2:
                     System.out.println("Ordenando enteros con Insertion Sort:");
