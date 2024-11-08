@@ -1,6 +1,11 @@
-package Utilitis.Ordenamientos;
+package Menu;
 
 import java.util.Scanner;
+
+import Utilitis.Ordenamientos.FuncionesOrdenamiento;
+import Utilitis.Ordenamientos.Insertion;
+import Utilitis.Ordenamientos.Quicksort;
+import Utilitis.Ordenamientos.Shellsort;
 
 public class MenuOrdenamiento {
     public static void main(String[] args) {
