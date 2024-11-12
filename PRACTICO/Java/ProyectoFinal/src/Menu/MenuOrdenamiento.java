@@ -33,9 +33,9 @@ public class MenuOrdenamiento {
         System.out.println("Cargar arrays de manera random");
         System.out.print("Ingrese la longitud del array: ");
         int length = scanner.nextInt();
-        intArray = FuncionesOrdenamiento.generateRandomIntArray(length);
-        doubleArray = FuncionesOrdenamiento.generateRandomDoubleArray(length);
-        stringArray = FuncionesOrdenamiento.generateRandomStringArray(length); // Método para generar cadenas aleatorias
+        intArray = FuncionesOrdenamiento.generarRandomIntArray(length);
+        doubleArray = FuncionesOrdenamiento.generarRandomDoubleArray(length);
+        stringArray = FuncionesOrdenamiento.generarRandomStringArray(length); // Método para generar cadenas aleatorias
         System.out.println("Arrays generados con longitud " + length);
         do {
             System.out.println("""
@@ -71,54 +71,45 @@ public class MenuOrdenamiento {
 
             switch (opcion) {
                 case 1:
-                    intArray = FuncionesOrdenamiento.generateRandomIntArray(intArray.length);
-                    doubleArray = FuncionesOrdenamiento.generateRandomDoubleArray(doubleArray.length);
-                    stringArray = FuncionesOrdenamiento.generateRandomStringArray(stringArray.length);
+                    intArray = FuncionesOrdenamiento.generarRandomIntArray(intArray.length);
+                    doubleArray = FuncionesOrdenamiento.generarRandomDoubleArray(doubleArray.length);
+                    stringArray = FuncionesOrdenamiento.generarRandomStringArray(stringArray.length);
                     break;
                 case 2:
                     System.out.println("Ordenando enteros con Insertion Sort:");
                     FuncionesOrdenamiento.measureSortingTime(intArray, insertionSortInt);
-                    FuncionesOrdenamiento.printArray(intArray);
                     break;
                 case 3:
                     System.out.println("Ordenando doubles con Insertion Sort:");
                     FuncionesOrdenamiento.measureSortingTime(doubleArray, insertionSortDouble);
-                    FuncionesOrdenamiento.printArray(doubleArray);
                     break;
                 case 4:
                     System.out.println("Ordenando cadenas de caracteres con Insertion Sort:");
                     FuncionesOrdenamiento.measureSortingTime(stringArray, insertionSortString);
-                    FuncionesOrdenamiento.printArray(stringArray);
                     break;
                 case 5:
                     System.out.println("Ordenando enteros con Shellsort:");
                     FuncionesOrdenamiento.measureSortingTime(intArray, shellSortInt);
-                    FuncionesOrdenamiento.printArray(intArray);
                     break;
                 case 6:
                     System.out.println("Ordenando doubles con Shellsort:");
                     FuncionesOrdenamiento.measureSortingTime(doubleArray, shellSortDouble);
-                    FuncionesOrdenamiento.printArray(doubleArray);
                     break;
                 case 7:
                     System.out.println("Ordenando cadenas de caracteres con Shellsort:");
                     FuncionesOrdenamiento.measureSortingTime(stringArray, shellSortString);
-                    FuncionesOrdenamiento.printArray(stringArray);
                     break;
                 case 8:
                     System.out.println("Ordenando enteros con Quicksort:");
                     FuncionesOrdenamiento.measureSortingTime(intArray, quickSortInt);
-                    FuncionesOrdenamiento.printArray(intArray);
                     break;
                 case 9:
                     System.out.println("Ordenando doubles con Quicksort:");
                     FuncionesOrdenamiento.measureSortingTime(doubleArray, quickSortDouble);
-                    FuncionesOrdenamiento.printArray(doubleArray);
                     break;
                 case 10:
                     System.out.println("Ordenando cadenas de caracteres con Quicksort:");
                     FuncionesOrdenamiento.measureSortingTime(stringArray, quickSortString);
-                    FuncionesOrdenamiento.printArray(stringArray);
                     break;
                 case 11:
                     FuncionesOrdenamiento.printArray(intArray);
