@@ -1,70 +1,69 @@
+// Cola.java
 package Utilitis.PilaYCola;
 
 import java.util.Scanner;
 
-import Utilitis.PilaYCola.NodeArray;
-
 public class Cola<T extends Comparable<T>> {
     private int size = 0;
     private int back = -1, front = 0;
-    private int idSum = 0;
+    private NodeArray<T>[] nodeArray;
+    private int capacity;
 
-    private Scanner entrada = new Scanner(System.in);
+    // Constructor para inicializar la cola con una capacidad dada
+    public Cola(int capacity) {
+        this.capacity = capacity;
+        // Inicialización de un arreglo de tipo NodeArray<T> de tamaño `capacity`
+        this.nodeArray = (NodeArray<T>[]) new NodeArray[capacity];
+    }
 
-    public void enqueue(NodeArray<T>[] node, T dato) {
-        if (isFull(node)) {
+    public Cola() {
+
+    }
+
+    // Método para agregar un elemento al final de la cola
+    public void enqueue(T dato) {
+        if (isFull()) {
             System.out.println("La cola está llena.");
             return;
         }
-
-        // Crear un nuevo NodeArray con el tipo genérico T
+        // Crear un nuevo nodo con el dato proporcionado
         NodeArray<T> newNodeArray = new NodeArray<>(dato);
 
         // Insertamos el nuevo nodo en la posición `back` de la cola
-        back = (back + 1) % node.length;
-        node[back] = newNodeArray;
+        back = (back + 1) % nodeArray.length;
+        nodeArray[back] = newNodeArray;
         size++;
     }
 
-    public NodeArray<T> dequeue(NodeArray<T>[] node) {
+    // Método para remover y devolver el elemento en el frente de la cola
+    public NodeArray<T> dequeue() {
         if (isEmpty()) {
             System.out.println("La cola está vacía.");
             return null;
         }
-
-        // Obtener y remover el elemento del frente de la cola
-        NodeArray<T> aux = node[front];
-        front = (front + 1) % node.length;
+        // Obtener y remover el elemento en el frente
+        NodeArray<T> aux = nodeArray[front];
+        front = (front + 1) % nodeArray.length;
         size--;
         return aux;
     }
 
-    public NodeArray<T> top(NodeArray<T>[] node) {
+    // Método para obtener el elemento en el frente sin removerlo
+    public NodeArray<T> top() {
         if (isEmpty()) {
             System.out.println("La cola está vacía.");
             return null;
         }
-        return node[front];
+        return nodeArray[front];
     }
 
+    // Verifica si la cola está vacía
     public boolean isEmpty() {
         return size == 0;
     }
 
-    public boolean isFull(NodeArray<T>[] node) {
-        return size == node.length;
-    }
-
-    // Método de ayuda para leer un dato del tipo deseado
-    public static <T> T leerDato(Scanner entrada, Class<T> tipo) {
-        if (tipo == String.class) {
-            return tipo.cast(entrada.nextLine());
-        } else if (tipo == Integer.class) {
-            return tipo.cast(entrada.nextInt());
-        } else if (tipo == Float.class) {
-            return tipo.cast(entrada.nextFloat());
-        } else {
-            throw new IllegalArgumentException("Tipo no soportado");
-        }
+    // Verifica si la cola está llena
+    public boolean isFull() {
+        return size == nodeArray.length;
     }
 }
