@@ -2,17 +2,17 @@ package Menu;
 
 import java.util.Scanner;
 
-import Utilitis.PilaYCola.MColaYPila;
+import Utilitis.PilaYCola.PilaYColaArray.*;;
 
-public class MenuPilaYCola {
+public class MenuPilaYColaArray {
     public void mostrarMenu() {
-        MColaYPila newMenuPilaYCola = new MColaYPila();
+        menuColaYPila newMenuPilaYCola = new menuColaYPila();
         Scanner entrada = new Scanner(System.in);
         int op = 0;
         do {
             System.out.println();
             System.out.println("""
-                    ##### Menú Pila Y Cola #####
+                    ##### Menú Pila Y Cola (Array) #####
                     1. Menu de Cola
                     2. Menu de Pila
                     0. Salir del menu pila y cola""");

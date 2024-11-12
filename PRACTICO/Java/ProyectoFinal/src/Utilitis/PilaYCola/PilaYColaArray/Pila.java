@@ -5,14 +5,14 @@ import Utilitis.PilaYCola.*;
 
 public class Pila<T extends Comparable<T>> {
     private int capacidad;
-    private NodeArray<T>[] pilaNodeArrays;
+    private NodeDato<T>[] pilaNodeDatos;
     private int top = -1;
 
     // Constructor que inicializa la pila con un tamaño fijo
     @SuppressWarnings("unchecked")
     public Pila(int tamaño) {
         this.capacidad = tamaño;
-        pilaNodeArrays = (NodeArray<T>[]) new NodeArray[tamaño];
+        pilaNodeDatos = (NodeDato<T>[]) new NodeDato[tamaño];
     }
 
     // Verifica si la pila está vacía
@@ -26,31 +26,31 @@ public class Pila<T extends Comparable<T>> {
     }
 
     // Método para agregar un elemento en la cima de la pila
-    public void push(NodeArray<T> nodo) {
+    public void push(NodeDato<T> nodo) {
         if (isFull()) {
             System.out.println("La pila está llena.");
         } else {
-            pilaNodeArrays[++top] = nodo;
+            pilaNodeDatos[++top] = nodo;
         }
     }
 
     // Método para remover y devolver el elemento en la cima de la pila
-    public NodeArray<T> pop() {
+    public NodeDato<T> pop() {
         if (isEmpty()) {
             System.out.println("La pila está vacía.");
             return null;
         } else {
-            return pilaNodeArrays[top--];
+            return pilaNodeDatos[top--];
         }
     }
 
     // Método para obtener el elemento en la cima sin removerlo
-    public NodeArray<T> topStack() {
+    public NodeDato<T> topStack() {
         if (isEmpty()) {
             System.out.println("La pila está vacía.");
             return null;
         } else {
-            return pilaNodeArrays[top];
+            return pilaNodeDatos[top];
         }
     }
 

@@ -1,11 +1,12 @@
 package Utilitis.PilaYCola.PilaYColaConLista;
 
 import java.util.Scanner;
-import Utilitis.PilaYCola.*;
+
+import Utilitis.PilaYCola.NodeDato;
 
 public class ColaLista {
-    private Node<Node> front;
-    private Node<Node> back;
+    private Node<NodeDato> front;
+    private Node<NodeDato> back;
     Scanner entrada = new Scanner(System.in);
 
     public ColaLista() {
@@ -13,27 +14,27 @@ public class ColaLista {
     }
 
     public void enqueue() {
-        Node pedidos = new Node();
+        NodeDato pedidos = new NodeDato();
         CargarDatos car = new CargarDatos();
         car.cargarDatos(pedidos);
         if (isEmpty()) {
-            back = front = new Node<Node>(pedidos);
+            back = front = new Node<NodeDato>(pedidos);
         } else {
-            back.setNext(new Node<Node>(pedidos));
+            back.setNext(new Node<NodeDato>(pedidos));
             back = back.getNext();
         }
     }
 
-    public Node dequeue() {
+    public NodeDato dequeue() {
         if (isEmpty()) {
             System.out.println("Cola vacia, no se puede eliminar nada");
         }
-        Node deqValue = front.getData();
+        NodeDato deqValue = front.getData();
         front = front.getNext();
         return (deqValue);
     }
 
-    public Node getFont() {
+    public NodeDato getFont() {
         if (isEmpty()) {
             System.out.println("No se puede devolver un elemento porque esta vacia");
         }

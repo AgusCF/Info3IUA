@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MenuPilaYColaLista",
+      "request": "launch",
+      "mainClass": "Menu.MenuPilaYColaLista",
+      "projectName": "ProyectoFinal_da8596a5"
+    },
+    {
+      "type": "java",
       "name": "MenuPilaYCola",
       "request": "launch",
       "mainClass": "Menu.MenuPilaYCola",

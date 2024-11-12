@@ -1,26 +1,26 @@
 package Utilitis.PilaYCola.PilaYColaConLista;
 
-import Utilitis.PilaYCola.PilaYColaConLista.*;
+import Utilitis.PilaYCola.NodeDato;
 
 public class PilaLista {
 
-    private Node<Node> topOFStak;
+    private Node<NodeDato> topOFStak;
     private int canDenode = 0;
 
-    public void push(Node newPedido) {
+    public void push(NodeDato newPedido) {
         if (isEmpty()) {
-            Node newNode = new Node<Node>(newPedido);
+            Node newNode = new Node<NodeDato>(newPedido);
             topOFStak = newNode;
             canDenode++;
         } else {
-            Node newNode = new Node<Node>(newPedido);
+            Node newNode = new Node<NodeDato>(newPedido);
             newNode.setNext(topOFStak);
             topOFStak = newNode;
             canDenode++;
         }
     }
 
-    public Node pop() {
+    public NodeDato pop() {
         if (isEmpty()) {
             return null;
         } else {
@@ -30,7 +30,7 @@ public class PilaLista {
         }
     }
 
-    public Node top() {
+    public NodeDato top() {
         if (isEmpty()) {
             return null;
         } else {

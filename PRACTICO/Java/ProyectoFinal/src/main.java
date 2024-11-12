@@ -4,7 +4,8 @@ import Menu.*;
 public class main {
     public static void main(String[] args) {
         MenuRecursiva menuRecursiva = new MenuRecursiva();
-        MenuPilaYCola menuPilaYCola = new MenuPilaYCola();
+        MenuPilaYColaArray menuPilaYCola = new MenuPilaYColaArray();
+        MenuPilaYColaLista menuPilaYColaLista = new MenuPilaYColaLista();
         MenuAVL menuAVL = new MenuAVL();
         MenuRaB menuRaB = new MenuRaB();
         MenuMonticulo menuMonticulo = new MenuMonticulo();
@@ -17,7 +18,7 @@ public class main {
                         ##### Menú #####
                     1. Menú Recursividad
                     2. Pila y cola (Arreglos)
-                    3. Pila y cola (Arreglos)
+                    3. Pila y cola (Listas)
                     4. Menú Árbol AVL
                     5. Menú Árbol Rojo y Negro
                     6. Montículo Binario
@@ -40,7 +41,7 @@ public class main {
                     menuPilaYCola.mostrarMenu();
                     break;
                 case 3:
-
+                    menuPilaYColaLista.mostrarMenu();
                     break;
                 case 4:
                     menuAVL.mostrarMenu();
@@ -51,7 +52,7 @@ public class main {
                 case 6:
                     menuMonticulo.mostrarMenu();
                     break;
-                case 7:
+                case 0:
                     System.out.println("Saliendo del programa...");
                     break;
                 default:

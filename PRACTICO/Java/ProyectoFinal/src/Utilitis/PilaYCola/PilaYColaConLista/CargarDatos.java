@@ -1,19 +1,16 @@
 package Utilitis.PilaYCola.PilaYColaConLista;
 
 import java.util.Scanner;
-import utilitis.Ordenamiento.Pedido;
+
+import Utilitis.PilaYCola.NodeDato;
 
 public class CargarDatos {
     Scanner entrada = new Scanner(System.in);
-    private int idSum = 1;
 
-    public void cargarDatos(Node newPedido) {
-        System.out.println("Ingresa los datos a continuacion:");
-        System.out.print("\nCliente (Nombre): ");
-        if (idSum != 1) {
-            entrada.nextLine();
-        }
-        newPedido.setData(entrada.nextLine());
+    public void cargarDatos(NodeDato newDato) {
+        System.out.print("\nIngresa los datos a continuacion:");
+
+        newDato.setDato(entrada.nextInt());
 
     }
 }

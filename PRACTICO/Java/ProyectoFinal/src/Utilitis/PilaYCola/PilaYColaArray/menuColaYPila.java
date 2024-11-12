@@ -5,9 +5,9 @@ import Utilitis.PilaYCola.*;
 
 import java.util.Scanner;
 
-public class MColaYPila<T extends Comparable<T>> {
+public class menuColaYPila<T extends Comparable<T>> {
     private static final int TAM = 20; // Tamaño máximo de la cola y pila
-    private NodeArray<Integer>[] arrays = (NodeArray<Integer>[]) new NodeArray[TAM]; // Arreglo para almacenar los datos
+    private NodeDato<Integer>[] arrays = (NodeDato<Integer>[]) new NodeDato[TAM]; // Arreglo para almacenar los datos
     private int cantidad = 0; // Contador de elementos almacenados
     private Scanner entrada = new Scanner(System.in); // Scanner para entrada de usuario
     private Cola<Integer> cola = new Cola<>(TAM); // Cola de enteros
@@ -20,7 +20,7 @@ public class MColaYPila<T extends Comparable<T>> {
      */
     public void menuCola() {
         do {
-            System.out.println("******** MENU COLA ********");
+            System.out.println("******** MENU COLA (Arrays)********");
             System.out.println("""
                     1- Agregar un dato a la Cola
                     2- Remover el dato al frente de la Cola
@@ -38,14 +38,14 @@ public class MColaYPila<T extends Comparable<T>> {
                         System.out.print("Dato a guardar: ");
                         int dato = entrada.nextInt();
                         cola.enqueue(dato);
-                        arrays[cantidad++] = new NodeArray<>(dato);
+                        arrays[cantidad++] = new NodeDato<>(dato);
                     } else {
                         System.out.println("La cola está llena.");
                     }
                     break;
                 case 2:
                     // Remover y mostrar el dato al frente de la cola
-                    NodeArray<Integer> datoEliminado = cola.dequeue();
+                    NodeDato<Integer> datoEliminado = cola.dequeue();
                     if (datoEliminado != null) {
                         System.out.println("El dato eliminado es: " + datoEliminado.getDato());
                         pila.push(datoEliminado); // Guardar el dato eliminado en la pila
@@ -53,7 +53,7 @@ public class MColaYPila<T extends Comparable<T>> {
                     break;
                 case 3:
                     // Mostrar el dato al frente de la cola sin removerlo
-                    NodeArray<Integer> datoFrente = cola.top();
+                    NodeDato<Integer> datoFrente = cola.top();
                     if (datoFrente != null) {
                         System.out.println("El dato al frente es: " + datoFrente.getDato());
                     }
@@ -82,7 +82,7 @@ public class MColaYPila<T extends Comparable<T>> {
     public void menuPila() {
         QuicksortGenerico<Integer> quicksortGenerico = new QuicksortGenerico<>();
         do {
-            System.out.println("******** MENU PILA ********");
+            System.out.println("******** MENU PILA (Arrays) ********");
             System.out.println("""
                     1- Agregar un dato a la Pila
                     2- Remover el último dato de la Pila
@@ -99,7 +99,7 @@ public class MColaYPila<T extends Comparable<T>> {
                     if (cantidad < TAM) {
                         System.out.print("Dato a guardar: ");
                         int dato = entrada.nextInt();
-                        NodeArray<Integer> nuevoDato = new NodeArray<>(dato);
+                        NodeDato<Integer> nuevoDato = new NodeDato<>(dato);
                         pila.push(nuevoDato);
                         arrays[cantidad++] = nuevoDato;
                     } else {
@@ -108,14 +108,14 @@ public class MColaYPila<T extends Comparable<T>> {
                     break;
                 case 2:
                     // Remover y mostrar el último dato de la pila
-                    NodeArray<Integer> datoCompletado = pila.pop();
+                    NodeDato<Integer> datoCompletado = pila.pop();
                     if (datoCompletado != null) {
                         System.out.println("Dato completado: " + datoCompletado.getDato());
                     }
                     break;
                 case 3:
                     // Mostrar el último dato de la pila sin removerlo
-                    NodeArray<Integer> ultimoDato = pila.topStack();
+                    NodeDato<Integer> ultimoDato = pila.topStack();
                     if (ultimoDato != null) {
                         System.out.println("Último dato completado: " + ultimoDato.getDato());
                     }

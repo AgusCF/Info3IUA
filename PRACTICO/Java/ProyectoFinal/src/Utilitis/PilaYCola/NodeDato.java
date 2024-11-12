@@ -2,12 +2,16 @@
 package Utilitis.PilaYCola;
 
 // Clase genérica que almacena un dato y permite la comparación
-public class NodeArray<T extends Comparable<T>> implements Comparable<NodeArray<T>> {
+public class NodeDato<T extends Comparable<T>> implements Comparable<NodeDato<T>> {
     private T dato; // Tipo genérico
 
     // Constructor que inicializa el dato
-    public NodeArray(T dato) {
+    public NodeDato(T dato) {
         this.dato = dato;
+    }
+
+    public NodeDato() {
+
     }
 
     // Getter para obtener el dato
@@ -27,7 +31,7 @@ public class NodeArray<T extends Comparable<T>> implements Comparable<NodeArray<
 
     // Método de comparación para ordenar nodos
     @Override
-    public int compareTo(NodeArray<T> otroNodeArray) {
+    public int compareTo(NodeDato<T> otroNodeArray) {
         return this.dato.compareTo(otroNodeArray.getDato());
     }
 }
