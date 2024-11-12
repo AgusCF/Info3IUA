@@ -1,5 +1,7 @@
 // Pila.java
-package Utilitis.PilaYCola;
+package Utilitis.PilaYCola.PilaYColaArray;
+
+import Utilitis.PilaYCola.*;
 
 public class Pila<T extends Comparable<T>> {
     private int capacidad;

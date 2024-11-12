@@ -1,5 +1,7 @@
 // MenuColaYPila.java
-package Utilitis.PilaYCola;
+package Utilitis.PilaYCola.PilaYColaArray;
+
+import Utilitis.PilaYCola.*;
 
 import java.util.Scanner;
 

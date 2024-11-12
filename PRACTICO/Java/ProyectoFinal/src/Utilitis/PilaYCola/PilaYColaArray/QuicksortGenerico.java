@@ -1,5 +1,7 @@
 // QuicksortGenerico.java
-package Utilitis.PilaYCola;
+package Utilitis.PilaYCola.PilaYColaArray;
+
+import Utilitis.PilaYCola.*;;
 
 // Clase para realizar ordenamiento usando el algoritmo Quicksort
 public class QuicksortGenerico<T extends Comparable<T>> {

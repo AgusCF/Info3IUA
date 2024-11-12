@@ -1,4 +1,4 @@
-package 
+package Utilitis.PilaYColaConLista;
 
 public class Node<T> {
     private T data;
@@ -24,6 +24,5 @@ public class Node<T> {
     public void setNext(Node<T> next) {
         this.next = next;
     }
-
 
 }
