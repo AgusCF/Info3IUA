@@ -11,7 +11,7 @@ public class FuncionesOrdenamiento {
     }
 
     // Método para generar un array de enteros aleatorios
-    public static Integer[] generateRandomIntArray(int length) {
+    public static Integer[] generarRandomIntArray(int length) {
         Integer[] array = new Integer[length];
         Random rand = new Random();
         for (int i = 0; i < length; i++) {
@@ -21,7 +21,7 @@ public class FuncionesOrdenamiento {
     }
 
     // Método para generar un array de números double aleatorios
-    public static Double[] generateRandomDoubleArray(int length) {
+    public static Double[] generarRandomDoubleArray(int length) {
         Double[] array = new Double[length];
         Random rand = new Random();
         for (int i = 0; i < length; i++) {
@@ -29,7 +29,7 @@ public class FuncionesOrdenamiento {
         }
         return array;
     }
-    public static String[] generateRandomStringArray(int length) {
+    public static String[] generarRandomStringArray(int length) {
         String[] array = new String[length];
         Random rand = new Random();
         for (int i = 0; i < length; i++) {
