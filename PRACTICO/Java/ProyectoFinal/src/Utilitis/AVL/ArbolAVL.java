@@ -9,11 +9,12 @@ public class ArbolAVL<T extends Comparable<T>> {
             return new Node<>(element); // Devuelve el nuevo nodo
         }
 
-        // Si el elemento es menor, lo insertamos en el subárbol izquierdo
+        // Comparar el elemento con el nodo actual para decidir la ubicación
+        // Si el elemento es menor, se inserta en el subárbol izquierdo
         if (element.compareTo(rama.getElement()) < 0) {
             rama.setLeft(insert(rama.getLeft(), element));
         }
-        // Si el elemento es mayor, lo insertamos en el subárbol derecho
+        // Si el elemento es mayor, se inserta en el subárbol derecho
         else if (element.compareTo(rama.getElement()) > 0) {
             rama.setRight(insert(rama.getRight(), element));
         } else {
@@ -21,14 +22,13 @@ public class ArbolAVL<T extends Comparable<T>> {
             return rama; // No permite duplicados
         }
 
-        // Actualizamos la altura del nodo actual
+        // Actualiza la altura del nodo actual después de la inserción
         rama.setAltura(1 + Math.max(altura(rama.getLeft()), altura(rama.getRight())));
 
-        // Calculamos el factor de balanceo
+        // Calcula el factor de balanceo para verificar si el nodo está desbalanceado
         int factorBalanceo = calcularFactorBalanceo(rama);
 
-        // Verificamos si el nodo está desbalanceado y realizamos rotaciones si es
-        // necesario
+        // Realiza las rotaciones correspondientes si el nodo está desbalanceado
         if (factorBalanceo < -1) {
             // Desbalanceado a la izquierda
             if (element.compareTo(rama.getLeft().getElement()) < 0) {
@@ -57,7 +57,7 @@ public class ArbolAVL<T extends Comparable<T>> {
         if (nodo == null) {
             return -1; // Altura de un nodo vacío es -1
         }
-        return nodo.getAltura();
+        return nodo.getAltura(); // Retorna la altura del nodo actual
     }
 
     // Método para calcular el factor de balanceo de un nodo
@@ -69,88 +69,84 @@ public class ArbolAVL<T extends Comparable<T>> {
         return altura(nodo.getRight()) - altura(nodo.getLeft());
     }
 
-    // Rotación simple a la derecha
+    // Rotación simple a la derecha para balancear el árbol
     private Node<T> rotarDerecha(Node<T> rama) {
-        Node<T> nuevaRaiz = rama.getLeft();
-        rama.setLeft(nuevaRaiz.getRight());
-        nuevaRaiz.setRight(rama);
+        Node<T> nuevaRaiz = rama.getLeft(); // Asigna el hijo izquierdo como nueva raíz
+        rama.setLeft(nuevaRaiz.getRight()); // Actualiza el subárbol izquierdo del nodo actual
+        nuevaRaiz.setRight(rama); // Ajusta el hijo derecho de la nueva raíz
 
-        // Actualizamos alturas
+        // Actualizamos alturas tras la rotación
         rama.setAltura(1 + Math.max(altura(rama.getLeft()), altura(rama.getRight())));
         nuevaRaiz.setAltura(1 + Math.max(altura(nuevaRaiz.getLeft()), altura(nuevaRaiz.getRight())));
 
-        return nuevaRaiz;
+        return nuevaRaiz; // Retorna la nueva raíz del subárbol rotado
     }
 
-    // Rotación simple a la izquierda
+    // Rotación simple a la izquierda para balancear el árbol
     private Node<T> rotarIzquierda(Node<T> rama) {
-        Node<T> nuevaRaiz = rama.getRight();
-        rama.setRight(nuevaRaiz.getLeft());
-        nuevaRaiz.setLeft(rama);
+        Node<T> nuevaRaiz = rama.getRight(); // Asigna el hijo derecho como nueva raíz
+        rama.setRight(nuevaRaiz.getLeft()); // Actualiza el subárbol derecho del nodo actual
+        nuevaRaiz.setLeft(rama); // Ajusta el hijo izquierdo de la nueva raíz
 
-        // Actualizamos alturas
+        // Actualizamos alturas tras la rotación
         rama.setAltura(1 + Math.max(altura(rama.getLeft()), altura(rama.getRight())));
         nuevaRaiz.setAltura(1 + Math.max(altura(nuevaRaiz.getLeft()), altura(nuevaRaiz.getRight())));
 
-        return nuevaRaiz;
+        return nuevaRaiz; // Retorna la nueva raíz del subárbol rotado
     }
 
+    // Método para eliminar un nodo en el árbol AVL
     public Node<T> delete(Node<T> rama, T element) {
         // Si el árbol está vacío, no hay nada que eliminar
         if (rama == null) {
             return rama;
         }
 
-        // Buscamos el nodo a eliminar
+        // Comparar el elemento para encontrar el nodo a eliminar
         if (element.compareTo(rama.getElement()) < 0) {
             rama.setLeft(delete(rama.getLeft(), element));
         } else if (element.compareTo(rama.getElement()) > 0) {
             rama.setRight(delete(rama.getRight(), element));
         } else {
-            // Nodo encontrado, vamos a eliminarlo
+            // Nodo encontrado; lo vamos a eliminar
+
             // Caso 1: Nodo con un solo hijo o sin hijos
             if (rama.getLeft() == null || rama.getRight() == null) {
-                Node<T> temp = null;
-                if (rama.getLeft() != null) {
-                    temp = rama.getLeft();
-                } else {
-                    temp = rama.getRight();
-                }
+                Node<T> temp = (rama.getLeft() != null) ? rama.getLeft() : rama.getRight();
 
-                // No tiene hijos
+                // Nodo sin hijos
                 if (temp == null) {
                     rama = null;
                 } else {
-                    // Tiene un solo hijo
+                    // Nodo con un solo hijo
                     rama = temp;
                 }
             } else {
-                // Caso 2: Nodo con dos hijos, obtener el sucesor en inorden (el menor de los
-                // mayores)
+                // Caso 2: Nodo con dos hijos
+                // Encuentra el sucesor en inorden (mínimo del subárbol derecho)
                 Node<T> temp = minValueNode(rama.getRight());
 
-                // Reemplazar el valor del nodo con el sucesor en inorden
+                // Reemplaza el valor del nodo actual con el sucesor
                 rama.setElement(temp.getElement());
 
-                // Eliminar el sucesor en inorden
+                // Elimina el sucesor en el subárbol derecho
                 rama.setRight(delete(rama.getRight(), temp.getElement()));
             }
         }
 
-        // Si solo había un nodo y se eliminó, regresamos null
+        // Si el árbol solo tenía un nodo y fue eliminado, retorna null
         if (rama == null) {
             return rama;
         }
 
-        // Actualizamos la altura
+        // Actualiza la altura después de la eliminación
         rama.setAltura(1 + Math.max(altura(rama.getLeft()), altura(rama.getRight())));
 
-        // Calculamos el factor de balanceo
+        // Calcula el factor de balanceo para verificar si el árbol está desbalanceado
         int factorBalanceo = calcularFactorBalanceo(rama);
 
-        // Verificamos si el árbol está desbalanceado
+        // Realiza las rotaciones correspondientes si el árbol está desbalanceado
         if (factorBalanceo < -1) {
-            // Desbalanceado a la izquierda
             if (calcularFactorBalanceo(rama.getLeft()) <= 0) {
                 return rotarDerecha(rama); // Rotación simple derecha
             } else {
@@ -160,7 +156,6 @@ public class ArbolAVL<T extends Comparable<T>> {
         }
 
         if (factorBalanceo > 1) {
-            // Desbalanceado a la derecha
             if (calcularFactorBalanceo(rama.getRight()) >= 0) {
                 return rotarIzquierda(rama); // Rotación simple izquierda
             } else {
@@ -169,78 +164,52 @@ public class ArbolAVL<T extends Comparable<T>> {
             }
         }
 
-        return rama;
+        return rama; // Retorna la raíz actualizada del subárbol
     }
 
-    // Método para encontrar el nodo con el valor mínimo (el sucesor en inorden)
+    // Método para encontrar el nodo con el valor mínimo en un subárbol
     private Node<T> minValueNode(Node<T> node) {
         Node<T> current = node;
 
-        // El nodo más a la izquierda tendrá el valor mínimo
+        // Encuentra el nodo más a la izquierda
         while (current.getLeft() != null) {
             current = current.getLeft();
         }
 
-        return current;
+        return current; // Retorna el nodo con el valor mínimo
     }
 
-    // Imprimir con ramas:
+    // Método para imprimir el árbol con representación visual de ramas
     public void imprimirArbolConRamas(Node<T> nodo, String prefix, boolean esHijoDerecho) {
         if (nodo != null) {
-            // Llamada recursiva al subárbol derecho
+            // Llamada recursiva al subárbol derecho con prefijo ajustado
             imprimirArbolConRamas(nodo.getRight(), prefix + (esHijoDerecho ? "       " : "│      "), true);
 
-            // Imprimir el prefijo y el nodo actual
+            // Imprime el prefijo y el valor del nodo actual
             System.out.println(prefix + (esHijoDerecho ? "┌───" : "└───") + "(" + nodo.getElement() + ")");
 
-            // Llamada recursiva al subárbol izquierdo
+            // Llamada recursiva al subárbol izquierdo con prefijo ajustado
             imprimirArbolConRamas(nodo.getLeft(), prefix + (esHijoDerecho ? "│      " : "       "), false);
         }
     }
-    // No se usan pero estan por orgullo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    // Imprimir sin ramas
+    // Métodos adicionales no utilizados para imprimir el árbol en diferentes
+    // órdenes
     /*
-     * public void imprimirArbol(Node<T> rama, int nivel) {
-     * if (rama == null) {
-     * return; // Si el nodo es nulo, salimos de la función
-     * }
-     * 
-     * // Aumentamos el nivel de indentación por cada nivel de profundidad en el
-     * árbol
-     * imprimirArbol(rama.getRight(), nivel + 1);
-     * 
-     * // Imprimir espacios para crear el efecto visual de árbol
-     * for (int i = 0; i < nivel; i++) {
-     * System.out.print("     "); // 5 espacios por nivel (puedes ajustar)
-     * }
-     * 
-     * // Imprimimos el valor del nodo
-     * System.out.println("("+rama.getElement()+")");
-     * 
-     * // Recorremos el subárbol izquierdo
-     * imprimirArbol(rama.getLeft(), nivel + 1);
-     * }
-     */
-
-    // Métodos para mostrar el árbol en preorden, enorden y postorden
-    /*
+     * Método para imprimir el árbol en inorden
      * private void printInOrder(Node<T> rama) {
      * if (rama == null) {
-     * return; // Si el nodo es nulo, salimos de la función
+     * return;
      * }
-     * 
-     * printInOrder(rama.getLeft()); // Recorremos el subárbol izquierdo
-     * System.out.print(" " + rama.getElement()); // Imprimimos el valor del nodo
-     * actual
-     * printInOrder(rama.getRight()); // Recorremos el subárbol derecho
+     * printInOrder(rama.getLeft());
+     * System.out.print(" " + rama.getElement());
+     * printInOrder(rama.getRight());
      * }
-     */
-
-    /*
+     *
+     * Método para recorrer el árbol en inorden
      * public void recorrerEnOrden(Node<T> rama) {
-     * printInOrder(rama); // Llama al método privado
-     * System.out.println(); // Nueva línea al final
+     * printInOrder(rama);
+     * System.out.println();
      * }
      */
 }
