@@ -5,7 +5,7 @@ import java.util.Scanner;
 import Utilitis.PilaYCola.MColaYPila;
 
 public class MenuPilaYCola {
-    public static void main(String[] args) {
+    public void mostrarMenu() {
         MColaYPila newMenuPilaYCola = new MColaYPila();
         Scanner entrada = new Scanner(System.in);
         int op = 0;

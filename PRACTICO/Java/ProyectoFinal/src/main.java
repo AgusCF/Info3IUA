@@ -4,6 +4,7 @@ import Menu.*;
 public class main {
     public static void main(String[] args) {
         MenuRecursiva menuRecursiva = new MenuRecursiva();
+        MenuPilaYCola menuPilaYCola = new MenuPilaYCola();
         MenuAVL menuAVL = new MenuAVL();
         MenuRaB menuRaB = new MenuRaB();
         MenuMonticulo menuMonticulo = new MenuMonticulo();
@@ -15,11 +16,11 @@ public class main {
             System.out.println("""
                         ##### Menú #####
                     1. Menú Recursividad
-                    2. Menú Árbol AVL
-                    3. Menú Árbol Rojo y Negro
-                    4. Montículo Binario
-                    5. ....
-                    6. ......
+                    2. Pila y cola (Arreglos)
+                    3. Pila y cola (Arreglos)
+                    4. Menú Árbol AVL
+                    5. Menú Árbol Rojo y Negro
+                    6. Montículo Binario
                     0. Salir del programa""");
             System.out.print("\nOpción: ");
 
@@ -36,19 +37,19 @@ public class main {
                     menuRecursiva.mostrarMenu();
                     break;
                 case 2:
-                    menuAVL.mostrarMenu();
+                    menuPilaYCola.mostrarMenu();
                     break;
                 case 3:
-                    menuRaB.mostrarMenu();
+
                     break;
                 case 4:
-                    menuMonticulo.mostrarMenu();
+                    menuAVL.mostrarMenu();
                     break;
                 case 5:
-                    System.out.println("Funcionalidad no implementada.");
+                    menuRaB.mostrarMenu();
                     break;
                 case 6:
-                    System.out.println("Funcionalidad no implementada.");
+                    menuMonticulo.mostrarMenu();
                     break;
                 case 7:
                     System.out.println("Saliendo del programa...");
