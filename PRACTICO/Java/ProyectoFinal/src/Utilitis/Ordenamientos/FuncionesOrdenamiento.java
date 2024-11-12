@@ -43,7 +43,7 @@ public class FuncionesOrdenamiento {
         long startTime = System.nanoTime();
         algorithm.sort(array);
         long endTime = System.nanoTime();
-        long duration = (endTime - startTime) / 1_000_000; // Convertir a milisegundos
+        long duration = (endTime - startTime) / 1000000; // Convertir a milisegundos
         System.out.println("Tiempo de ejecución: " + duration + " ms");
     }
 }

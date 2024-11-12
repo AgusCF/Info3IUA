@@ -1,6 +1,6 @@
-package utilitis.PilaYColaConLista;
+package Utilitis.PilaYColaConLista;
 import java.util.Scanner;
-import utilitis.Ordenamiento.Pedido;
+import Utilitis.Ordenamiento.Pedido;
 public class menuImplementacionListas {
     Pedido pedidos= new Pedido();
     ColaLista cola = new ColaLista();
