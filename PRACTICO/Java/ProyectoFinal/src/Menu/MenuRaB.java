@@ -41,7 +41,7 @@ public class MenuRaB {
                     int op = entrada.nextInt();
                     arbolRyB.insertar(op);
                 }
-                case 2 -> {
+                case 2 -> {//Mostrar en orden
                     System.out.println("Árbol Rojo y Negro:");
                     arbolRyB.imprimirArbolConRamas();
                 }

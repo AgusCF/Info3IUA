@@ -46,7 +46,7 @@ public class MenuRecursiva {
                     System.out.println("La suma de enteros hasta " + nSuma + " es: " + recursiva.sumaEnteros(nSuma));
                     break;
 
-                case 3:
+                case 3://Potencia
                     System.out.print("Introduce la base: ");
                     int base = scanner.nextInt();
                     System.out.print("Introduce el exponente: ");
@@ -63,7 +63,7 @@ public class MenuRecursiva {
                     System.out.println(); // Para nueva línea después del conteo
                     break;
 
-                case 5:
+                case 5://Producto
                     System.out.print("Introduce el primer número: ");
                     int a = scanner.nextInt();
                     System.out.print("Introduce el segundo número: ");
@@ -71,7 +71,7 @@ public class MenuRecursiva {
                     System.out.println("El producto de " + a + " y " + b + " es: " + recursiva.producto(a, b));
                     break;
 
-                case 6:
+                case 6://Imprimir Arreglo Inverso
                     System.out.print("Introduce el tamaño del arreglo: ");
                     int size = scanner.nextInt();
                     int[] arr = new int[size];
@@ -84,7 +84,7 @@ public class MenuRecursiva {
                     System.out.println(); // Para nueva línea después de imprimir
                     break;
 
-                case 7:
+                case 7://Contar Unos en Binario
                     System.out.print("Introduce un número para contar los unos en su representación binaria: ");
                     int nBinario = scanner.nextInt();
                     System.out.println("El número de unos en la representación binaria de " + nBinario + " es: "
@@ -102,6 +102,6 @@ public class MenuRecursiva {
             System.out.println(); // Para un espacio entre las opciones
         } while (opcion != 0);
 
-        // No cerramos el scanner aquí
+        // No cerramos el scanner aquí 
     }
 }
