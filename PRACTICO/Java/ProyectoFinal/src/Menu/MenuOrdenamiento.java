@@ -70,7 +70,7 @@ public class MenuOrdenamiento {
             }
 
             switch (opcion) {
-                case 1:
+                case 1://Randomizar array nuevamente
                     intArray = FuncionesOrdenamiento.generarRandomIntArray(intArray.length);
                     doubleArray = FuncionesOrdenamiento.generarRandomDoubleArray(doubleArray.length);
                     stringArray = FuncionesOrdenamiento.generarRandomStringArray(stringArray.length);
@@ -111,13 +111,13 @@ public class MenuOrdenamiento {
                     System.out.println("Ordenando cadenas de caracteres con Quicksort:");
                     FuncionesOrdenamiento.measureSortingTime(stringArray, quickSortString);
                     break;
-                case 11:
+                case 11://Imprimir Arreglo de Enteros
                     FuncionesOrdenamiento.printArray(intArray);
                     break;
-                case 12:
+                case 12://Imprimir Arreglo de Double
                     FuncionesOrdenamiento.printArray(doubleArray);
                     break;
-                case 13:
+                case 13://Imprimir Arreglo de Cadena de caracteres
                     FuncionesOrdenamiento.printArray(stringArray);
                     break;
                 case 0:
