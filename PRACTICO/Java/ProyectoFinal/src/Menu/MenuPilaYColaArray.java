@@ -2,7 +2,7 @@ package Menu;
 
 import java.util.Scanner;
 
-import Utilitis.PilaYCola.PilaYColaArray.*;;
+import Utilitis.PilaYCola.PilaYColaArray.*;
 
 public class MenuPilaYColaArray {
     public void mostrarMenu() {

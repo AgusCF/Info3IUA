@@ -38,13 +38,13 @@ public class MenuMonticulo {
             op = entrada.nextInt();
 
             switch (op) {
-                case 1:
+                case 1://argar montículo a mano
                     System.out.print("Ingrese valor: ");
                     num = entrada.nextInt();
                     monticulo.insert(num);
                     break;
 
-                case 2:
+                case 2://Cargar montículo con un número aleatorio
                     num = random.nextInt(100);
                     monticulo.insert(num);
                     break;
